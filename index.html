@@ -104,10 +104,10 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     <div class="split">
       <div class="box"><span class="sub">개발 · 운영비</span><span class="big num">₩250만</span>
         <ol>
-          <li><span>이미 들어간 개발비 (8/24~9/29)</span><span class="num">₩116만</span></li>
+          <li><span>이미 들어간 개발비 (도메인 · 호스팅 포함)</span><span class="num">₩118만</span></li>
           <li><span>다음 한 달 운영비 (서버 · 도구 · AI)</span><span class="num">₩41만</span></li>
           <li><span>다음 한 달 추가 크레딧 (9월 실사용 기준)</span><span class="num">₩77만</span></li>
-          <li><span>예비</span><span class="num">₩16만</span></li>
+          <li><span>예비</span><span class="num">₩14만</span></li>
         </ol>
       </div>
       <div class="box"><span class="sub">마케팅 테스트비</span><span class="big num">₩150만</span>
@@ -126,20 +126,21 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
 
 <section>
   <div class="eyebrow">1 · 개발비</div>
-  <h2>지금까지 든 개발비: 약 ₩116만</h2>
-  <p>개발 도구 구독, 서비스 안 AI 호출, AWS 서버비를 합한 금액입니다. 같은 구독과 서버를 다른 프로젝트도 쓰기 때문에, 공용 비용은 인스캔 사용 비율만큼만 넣었습니다.</p>
+  <h2>지금까지 든 개발비: 약 ₩118만</h2>
+  <p>개발 도구 구독, 서비스 안 AI 호출, 호스팅, 도메인을 합한 금액입니다. 같은 구독과 서버를 다른 프로젝트도 쓰기 때문에, 공용 비용은 인스캔 사용 비율만큼만 넣었습니다.</p>
   <div class="tbl"><table>
     <thead><tr><th>항목</th><th>산출 근거</th><th class="n">US$</th><th class="n">원화</th></tr></thead>
     <tbody>
       <tr><td>Claude Team 좌석 (Ted)<span class="tag est">추정</span></td><td>월 $165 × 37일 ≈ $200 중 인스캔 비율 90%<small>청구서는 3좌석에 월 $357.50입니다 (Premium 2좌석, Standard 1좌석, 부가세 포함). 좌석별 단가는 이 합계를 나눠 추정했습니다. 인스캔 비율은 같은 기간 Ted님 전체 Claude Code 사용량 중 인스캔 몫입니다.</small></td><td class="n">176</td><td class="n">₩246,400</td></tr>
       <tr><td>Claude 추가 크레딧 사용 (9월)<span class="tag ok">확인</span></td><td>9월 Ted님 크레딧 사용액 $502.11과 부가세 10%<small>좌석 한도를 넘긴 뒤 크레딧에서 빠진 금액입니다(9/29 조회). 크레딧은 9/27 · 9/28 · 9/29에 $220(크레딧 $200 + 부가세)씩 세 번 결제했습니다. 결제액 $660 중 잔액 $243.56은 다음 달로 넘어가고, 이안님 사용분은 제외했습니다. 9/24 이후 Ted님은 인스캔만 작업해서 전액을 인스캔에 넣었습니다.</small></td><td class="n">552</td><td class="n">₩772,800</td></tr>
       <tr><td>서비스 안 AI 호출 (Anthropic API)<span class="tag est">추정</span></td><td>DB에 기록된 판독 115건 약 $29와 기록 밖 실험 호출<small>실험 스크립트 호출은 DB에 남지 않아 약 $30을 더했습니다. 9/26 반복 측정에만 약 $28이 들었습니다.</small></td><td class="n">60</td><td class="n">₩84,000</td></tr>
-      <tr><td>AWS 서버 (스테이징)<span class="tag est">추정</span></td><td>인스캔 태그 비용 $20.74 확인, NAT 2대와 고정 IP 2개 약 $15 추정, 부가세 10%<small>프로덕션은 아직 첫 배포 전이라 스테이징 비용만 있습니다.</small></td><td class="n">40</td><td class="n">₩56,000</td></tr>
-      <tr class="total"><td>합계</td><td></td><td class="n">828</td><td class="n">₩1,159,200</td></tr>
+      <tr><td>호스팅 (AWS 서버 · DB · 저장소 · DNS)<span class="tag est">추정</span></td><td>인스캔 태그 비용 $20.74 확인, NAT 2대와 고정 IP 2개 약 $15 추정, 부가세 10%<small>인스캔은 웹 배포 · DB · 파일 저장 · DNS(Route53)를 모두 AWS에서 합니다. 프로덕션은 아직 첫 배포 전이라 스테이징 비용만 있습니다.</small></td><td class="n">40</td><td class="n">₩56,000</td></tr>
+      <tr><td>도메인 inscan.kr<span class="tag est">추정</span></td><td>2026-09-28 후이즈 등록, 1년 (2027-09-28 만료)<small>등록은 확인했고, 금액은 .kr 1년 등록 시세로 잡았습니다. 실제 결제 금액으로 바꿔야 합니다.</small></td><td class="n">18</td><td class="n">₩25,000</td></tr>
+      <tr class="total"><td>합계</td><td></td><td class="n">846</td><td class="n">₩1,184,200</td></tr>
     </tbody>
   </table></div>
   <div class="note">
-    <strong>최대치를 약 ₩142만으로 잡은 이유</strong>
+    <strong>최대치를 약 ₩144만으로 잡은 이유</strong>
     <p>8월 추가 사용료는 청구 화면에서 사용자별로 나뉘어 보이지 않습니다. 7~8월 조직 전체의 크레딧 사용액이 최대 약 $166(부가세 포함 $183)이라서, 이 금액을 모두 더한 값을 상한으로 잡았습니다. 앱 API 사용액도 Console에 로그인해서 확인하면 확정됩니다.</p>
   </div>
   <p class="lede">참고로 같은 사용량을 구독 없이 API 요금으로 냈다면 약 $4,222(약 ₩591만)입니다. 구독 덕분에 실제 지출은 그 금액의 약 1/5입니다.</p>
@@ -155,7 +156,7 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     <tbody>
       <tr><td>고정</td><td>AWS 프로덕션</td><td>DB(db.t4g.micro, 20GB) 약 $20, NAT 2대 약 $8, 고정 IP 약 $7, 기타 약 $5, 부가세 10%<small>9월 스테이징 실측값을 기준으로 잡았습니다. 프로덕션 설정도 같습니다 (sst.config.ts).</small></td><td class="n">44</td></tr>
       <tr><td>고정</td><td>AWS 스테이징</td><td>프로덕션과 같은 구성<small>개발을 쉬는 기간에는 꺼서 줄일 수 있습니다.</small></td><td class="n">44</td></tr>
-      <tr><td>고정</td><td>도메인 · DNS</td><td>Route53 호스팅 영역 $0.5와 도메인 연 약 $20<small>도메인은 아직 구매 전입니다.</small></td><td class="n">2</td></tr>
+      <tr><td>고정</td><td>도메인 · DNS</td><td>Route53 호스팅 영역 $0.5와 도메인 갱신비 연 약 $18을 월로 나눈 값<small>inscan.kr 은 9/28 구매했고 다음 갱신은 2027-09-28입니다.</small></td><td class="n">2</td></tr>
       <tr><td>고정</td><td>유지보수 도구 (Claude)</td><td>보통 수준 기준: Ted님 좌석 1개 월 $165<small>아래 계산기에서 최소 · 보통 · 집중 중에 고를 수 있습니다.</small></td><td class="n">165</td></tr>
       <tr><td>변동</td><td>AI 판독 (접수 1건당)</td><td>도면 판독 $0.7~0.9, 매칭 3회 약 $0.5, 견적서 판독 약 $0.1~0.3, 합계 약 $1.5<small>재산출 · 재시도 여유를 더해 건당 $2로 잡았습니다.</small></td><td class="n">건당 2</td></tr>
     </tbody>
