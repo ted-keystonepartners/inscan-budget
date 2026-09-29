@@ -26,8 +26,8 @@
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px;line-height:1.65;padding-inline:16px;padding-block:32px 64px}
-.wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:48px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px;line-height:1.65;padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
 .num,td.n,th.n{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
 header{display:flex;flex-direction:column;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:18px}
 .meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;color:var(--muted)}
@@ -114,10 +114,41 @@ legend{font-size:13px;color:var(--muted);margin-bottom:8px}
 .ucard .brk .num{font-size:13px;white-space:nowrap;color:var(--ink)}
 footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:4px}
 @media (max-width:480px){.hero{padding:16px}.hero .total{font-size:38px}.box{padding:14px}}
+
+:root{--band:#FFFFFF;--band-alt:#EEF1F3}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--band:#1A2124;--band-alt:#151B1E}}
+:root[data-theme="dark"]{--band:#1A2124;--band-alt:#151B1E}
+nav.chips{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;margin-inline:-16px;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-bottom:24px}
+nav.chips::-webkit-scrollbar{display:none}
+nav.chips a{flex:none;font-size:13px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;background:var(--paper);white-space:nowrap}
+nav.chips a.on{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+nav.chips a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+section.band{background:var(--band);border:1px solid var(--line);border-radius:10px;padding:28px;scroll-margin-top:64px;gap:18px}
+section.band.alt{background:var(--band-alt)}
+section.band .tbl,section.band .calc,section.band .ucard,section.band .step{background:var(--paper)}
+section.band.alt .box:not(.key){background:var(--paper)}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.sec-head .no{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:30px;font-weight:500;color:var(--accent);line-height:1}
+.sec-head h2{font-size:22px}
+.takeaway{margin:0;max-width:none;font-size:16px;font-weight:500;background:var(--accent-soft);border-left:4px solid var(--accent);padding:12px 16px;border-radius:0 6px 6px 0}
+h3 .sm{font-size:13px;font-weight:400}
+details.more{border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:0 14px}
+details.more>summary{cursor:pointer;padding:10px 0;font-size:14px;font-weight:500;color:var(--accent);list-style:none;display:flex;justify-content:space-between;gap:8px}
+details.more>summary::-webkit-details-marker{display:none}
+details.more>summary::after{content:"펼치기 ▾";font-size:12px;color:var(--muted);font-weight:400;white-space:nowrap}
+details.more[open]>summary::after{content:"접기 ▴"}
+details.more[open]{padding-bottom:14px}
+details.more>*:not(summary){margin-top:10px}
+details.more .formula,details.more .tbl{background:var(--bg)}
+header{padding-top:8px}
+@media (max-width:480px){section.band{padding:18px 14px}.sec-head .no{font-size:24px}.sec-head h2{font-size:19px}.takeaway{font-size:15px}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 </style>
 </head>
 <body>
-
+<nav class="chips" aria-label="장 이동">
+  <a href="#s1">01 요약</a><a href="#s2">02 유닛 이코노믹스</a><a href="#s3">03 첫 달 테스트</a><a href="#s4">04 확장</a><a href="#s5">05 키워드</a><a href="#s6">06 개발·운영</a><a href="#s7">07 계산기</a><a href="#s8">08 부록</a>
+</nav>
 
 <div class="wrap">
 <header>
@@ -126,22 +157,10 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
   <div class="meta"><span>작성 2026-09-29</span><span>2인 공동 적립 · 파트너 공유용</span><span>환율 가정 US$1 = ₩1,400</span></div>
 </header>
 
-<nav class="toc" aria-label="목차">
-  <ol>
-    <li><a href="#s0">한눈에 보기</a></li>
-    <li><a href="#s1">사업 가설 (유닛 이코노믹스)</a></li>
-    <li><a href="#s2">첫 달 테스트 계획</a></li>
-    <li><a href="#s3">확장 시나리오</a></li>
-    <li><a href="#s4">네이버 키워드 실측</a></li>
-    <li><a href="#s5">개발 · 운영</a></li>
-    <li><a href="#s6">계산기</a></li>
-    <li><a href="#s7">부록</a></li>
-  </ol>
-</nav>
-
-<!-- 0 -->
-<section id="s0">
-  <div class="eyebrow">0 · 한눈에 보기</div>
+<!-- 01 -->
+<section id="s1" class="band">
+  <div class="sec-head"><span class="no">01</span><h2>한눈에 보기</h2></div>
+  <p class="takeaway">첫 달에 ₩400만(1인당 ₩200만)을 모아, 광고비 ₩150만으로 기준 숫자 세 개가 나오는지 검증합니다.</p>
   <div class="hero">
     <div class="top"><span class="lede">첫 달 테스트 총비용</span><span class="total num">₩400만</span><span class="per num">1인당 ₩200만 × 2명</span></div>
     <div class="grid">
@@ -156,116 +175,102 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
       <div class="box"><span class="sub">마케팅 테스트비</span><span class="big num">₩150만</span>
         <ol>
           <li><span>네이버 키워드 광고 (부가세 포함)</span><span class="num">₩150만</span></li>
-          <li><span>예상 클릭</span><span class="num">약 1,100회</span></li>
-          <li><span>예상 신청 · 추천</span><span class="num">33건 · 10명</span></li>
-          <li><span>목표대로면 매출이익</span><span class="num pos">+₩137만</span></li>
+          <li><span>나눠 쓰기</span><span class="num">1차 ₩50만 → 2차 ₩100만</span></li>
+          <li><span>기준 숫자대로면 매출이익</span><span class="num pos">+₩137만</span></li>
         </ol>
       </div>
     </div>
-    <div class="grid">
-      <div class="box key"><span class="sub">기준 숫자 (이 값이 나오는지 검증한다)</span><span class="big num">3% · 30% · 1:3 × ₩10만</span><span class="sub">클릭→신청 · 신청→추천 요청 · 추천 1명을 업체 3곳에 10만 원씩</span></div>
-      <div class="box key"><span class="sub">역할</span><span class="big">Ted · 파트너</span><span class="sub">Ted: 신청 3% · 추천 30% / 파트너: 1:3 × 10만 원으로 꾸준히 판매</span></div>
-    </div>
-    <p class="lede">목표대로 되면 광고비를 월 약 ₩260만까지 늘릴 때 매출이익이 가장 큽니다 (약 +₩152만). 매출이익은 매출에서 광고비와 AI 판독비만 뺀 값이고, 운영비는 빼지 않았습니다.</p>
   </div>
+  <div class="grid">
+    <div class="box key"><span class="sub">검증할 기준 숫자</span><span class="big num">3% · 30% · 1:3 × ₩10만</span><span class="sub">클릭→신청 · 신청→추천 요청 · 추천 1명을 업체 3곳에 10만 원씩</span></div>
+    <div class="box key"><span class="sub">역할</span><span class="big">Ted · 파트너</span><span class="sub">Ted: 신청 3%와 추천 30% / 파트너: 1:3 × 10만 원으로 꾸준히 판매</span></div>
+  </div>
+  <p class="lede">매출이익은 매출에서 광고비와 AI 판독비만 뺀 값입니다. 운영비와 인건비는 빼지 않았습니다.</p>
 </section>
 
-<!-- 1 -->
-<section id="s1">
-  <div class="eyebrow">1 · 사업 가설</div>
-  <h2>유닛 이코노믹스</h2>
-  <p>광고비를 늘릴수록 돈을 버는지는 클릭 1회가 버는 돈과, 그 클릭을 사는 값을 비교하면 알 수 있습니다.</p>
+<!-- 02 -->
+<section id="s2" class="band alt">
+  <div class="sec-head"><span class="no">02</span><h2>유닛 이코노믹스</h2></div>
+  <p class="takeaway">기준 숫자대로면 신청 1건당 +₩41,700, 추천 1명당 +₩139,000이 남습니다. 추천 1명당 수익이 ₩16만을 넘어야 이익입니다.</p>
   <div class="funnel">
     <div class="step"><span class="l">클릭</span><span class="v num">100%</span><span class="o">네이버 검색광고</span></div>
     <div class="step"><span class="l">클릭 → 신청</span><span class="v num">3%</span><span class="o">Ted 책임</span></div>
     <div class="step"><span class="l">신청 → 추천 요청</span><span class="v num">30%</span><span class="o">Ted 책임</span></div>
     <div class="step"><span class="l">추천 1명 판매</span><span class="v num">3곳 × ₩10만</span><span class="o">파트너 책임</span></div>
   </div>
-  <div class="sub-sec">
-    <h3>단위별 원가 · 기대수익 · 이익 (광고비 150만 원, 기준 전환율)</h3>
-    <div class="unit">
-      <div class="ucard">
-        <h4>클릭 1회</h4>
-        <div class="need">클릭 1회 = 신청 0.03건</div>
-        <div class="row cost"><span>원가</span><span class="num">₩1,449</span></div>
-        <div class="brk">
-          <div><span>광고비 (평균 클릭 단가)</span><span class="num">₩1,365</span></div>
-          <div><span>AI 판독비 (신청 0.03건 × ₩2,800)</span><span class="num">₩84</span></div>
-        </div>
-        <div class="row rev"><span>기대수익</span><span class="num">₩2,700</span></div>
-        <small>3% × 30% × ₩30만</small>
-        <div class="row pl"><span>이익</span><span class="num">+₩1,251</span></div>
+
+  <h3>단위별 원가 · 기대수익 · 이익 <span class="lede sm">(광고비 ₩150만 기준)</span></h3>
+  <div class="unit">
+    <div class="ucard">
+      <h4>클릭 1회</h4>
+      <div class="need">클릭 1회 = 신청 0.03건</div>
+      <div class="row cost"><span>원가</span><span class="num">₩1,449</span></div>
+      <div class="brk">
+        <div><span>광고비 (평균 클릭 단가)</span><span class="num">₩1,365</span></div>
+        <div><span>AI 판독비 (0.03건 × ₩2,800)</span><span class="num">₩84</span></div>
       </div>
-      <div class="ucard key">
-        <h4>신청 1건</h4>
-        <div class="need">신청 1건 = 클릭 약 33회 (1 ÷ 3%)</div>
-        <div class="row cost"><span>원가</span><span class="num">₩48,300</span></div>
-        <div class="brk">
-          <div><span>광고비 (클릭 33.3회 × ₩1,365)</span><span class="num">₩45,500</span></div>
-          <div><span>AI 판독비 (신청 1건)</span><span class="num">₩2,800</span></div>
-        </div>
-        <div class="row rev"><span>기대수익</span><span class="num">₩90,000</span></div>
-        <small>추천 30% × ₩30만</small>
-        <div class="row pl"><span>이익</span><span class="num">+₩41,700</span></div>
-      </div>
-      <div class="ucard">
-        <h4>추천 1명</h4>
-        <div class="need">추천 1명 = 신청 3.3건 (1 ÷ 30%) = 클릭 약 111회</div>
-        <div class="row cost"><span>원가</span><span class="num">₩161,000</span></div>
-        <div class="brk">
-          <div><span>광고비 (클릭 111회 × ₩1,365)</span><span class="num">₩151,700</span></div>
-          <div><span>AI 판독비 (신청 3.3건 × ₩2,800)</span><span class="num">₩9,300</span></div>
-        </div>
-        <small>추천하지 않은 신청 2.3건의 광고비와 판독비도 이 1명이 부담합니다. 그래서 추천 1명당 수익이 ₩16만을 넘어야 이익입니다.</small>
-        <div class="row rev"><span>수익</span><span class="num">₩300,000</span></div>
-        <small>업체 3곳 × ₩10만</small>
-        <div class="row pl"><span>이익</span><span class="num">+₩139,000</span></div>
-      </div>
+      <div class="row rev"><span>기대수익</span><span class="num">₩2,700</span></div>
+      <small>3% × 30% × ₩30만</small>
+      <div class="row pl"><span>이익</span><span class="num">+₩1,251</span></div>
     </div>
-    <div class="tbl"><table>
-      <thead><tr><th>월 광고비</th><th class="n">평균 클릭 단가</th><th class="n">신청 1건 원가</th><th class="n">신청 1건 기대수익</th><th class="n">신청 1건 이익</th><th class="n">× 월 신청</th><th class="n">= 매출이익</th></tr></thead>
-      <tbody>
-        <tr><td>₩150만 (시작)</td><td class="n">₩1,365</td><td class="n">₩48,300</td><td class="n">₩90,000</td><td class="n pos">+₩41,700</td><td class="n">33건</td><td class="n pos">+₩137만</td></tr>
-        <tr class="hl"><td>₩260만 (최대 이익)</td><td class="n">₩1,650</td><td class="n">₩57,800</td><td class="n">₩90,000</td><td class="n pos">+₩32,200</td><td class="n">47건</td><td class="n pos">+₩152만</td></tr>
-        <tr><td>₩500만</td><td class="n">₩2,140</td><td class="n">₩74,100</td><td class="n">₩90,000</td><td class="n pos">+₩15,900</td><td class="n">70건</td><td class="n pos">+₩111만</td></tr>
-      </tbody>
-    </table></div>
-    <p class="lede">광고비를 늘리면 신청 1건의 원가가 올라가서 건당 이익은 줄어들고, 신청 건수는 늘어납니다. 둘을 곱한 매출이익은 월 약 ₩260만에서 가장 큽니다.</p>
-    <div class="formula">신청 1건 기대수익 = 추천요청률 × 추천 1명 수익        = 30% × ₩30만 = ₩90,000
-신청 1건 원가     = 평균 클릭 단가 ÷ 신청률 + AI 판독비
+    <div class="ucard key">
+      <h4>신청 1건</h4>
+      <div class="need">신청 1건 = 클릭 약 33회</div>
+      <div class="row cost"><span>원가</span><span class="num">₩48,300</span></div>
+      <div class="brk">
+        <div><span>광고비 (33.3회 × ₩1,365)</span><span class="num">₩45,500</span></div>
+        <div><span>AI 판독비</span><span class="num">₩2,800</span></div>
+      </div>
+      <div class="row rev"><span>기대수익</span><span class="num">₩90,000</span></div>
+      <small>추천 30% × ₩30만</small>
+      <div class="row pl"><span>이익</span><span class="num">+₩41,700</span></div>
+    </div>
+    <div class="ucard">
+      <h4>추천 1명</h4>
+      <div class="need">추천 1명 = 신청 3.3건 = 클릭 약 111회</div>
+      <div class="row cost"><span>원가</span><span class="num">₩161,000</span></div>
+      <div class="brk">
+        <div><span>광고비 (111회 × ₩1,365)</span><span class="num">₩151,700</span></div>
+        <div><span>AI 판독비 (3.3건 × ₩2,800)</span><span class="num">₩9,300</span></div>
+      </div>
+      <div class="row rev"><span>수익</span><span class="num">₩300,000</span></div>
+      <small>업체 3곳 × ₩10만. 추천하지 않은 신청 2.3건의 비용도 이 1명이 부담합니다</small>
+      <div class="row pl"><span>이익</span><span class="num">+₩139,000</span></div>
+    </div>
+  </div>
+
+  <h3>역할 분담</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>역할</th><th>책임 숫자</th><th>월 물량 (광고비 ₩150만)</th><th>손대는 곳</th></tr></thead>
+    <tbody>
+      <tr><td>Ted · 제품 · 마케팅</td><td>클릭→신청 3% · 신청→추천 30%</td><td>신청 약 33건 · 추천 약 10명</td><td>광고 키워드 · 입찰 · 랜딩 · 신청 폼(첨부 단계) · 회신 견적서의 「업체 추천받기」 버튼</td></tr>
+      <tr><td>파트너 · 영업</td><td>추천 1명당 업체 3곳 × 10만 원</td><td>리드 약 30건 판매</td><td>구매 업체 약 10곳 확보(한 곳당 월 2~3건). 신청이 전국에서 들어오므로 지역별로 갖춰야 합니다</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>민감도 <span class="lede sm">(광고비 ₩150만, 신청 3%, 매출이익)</span></h3>
+  <div class="tbl"><table>
+    <thead><tr><th>추천요청률 \ 매칭</th><th class="n">1:2 × ₩10만</th><th class="n">1:3 × ₩10만</th></tr></thead>
+    <tbody>
+      <tr><td>30%</td><td class="n">+₩39만</td><td class="n pos"><strong>+₩137만 (기준)</strong></td></tr>
+      <tr><td>40%</td><td class="n">+₩104만</td><td class="n pos">+₩236만</td></tr>
+    </tbody>
+  </table></div>
+  <p class="lede">매칭 업체를 2곳에서 3곳으로 늘리는 효과가 추천요청률 10%p보다 큽니다.</p>
+
+  <details class="more"><summary>계산식 보기</summary>
+    <div class="formula">신청 1건 기대수익 = 추천요청률 × 추천 1명 수익       = 30% × ₩30만 = ₩90,000
+신청 1건 원가     = 평균 클릭 단가 ÷ 신청률 + AI 판독비 = ₩1,365 ÷ 3% + ₩2,800 = ₩48,300
 본전 조건        : 평균 클릭 단가 &lt; 신청률 × (기대수익 − AI 판독비) ≈ ₩2,616</div>
-  </div>
-
-  <div class="sub-sec">
-    <h3>역할 분담</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>역할</th><th>책임 숫자</th><th>월 물량 (광고비 150만 원)</th><th>손대는 곳</th></tr></thead>
-      <tbody>
-        <tr><td>Ted · 제품 · 마케팅</td><td>클릭→신청 3% · 신청→추천 30%</td><td>신청 약 33건 · 추천 약 10명</td><td>광고 키워드 · 입찰 · 랜딩 · 신청 폼(첨부 단계) · 회신 견적서의 「업체 추천받기」 버튼</td></tr>
-        <tr><td>파트너 · 영업</td><td>추천 1명당 업체 3곳 × 10만 원 판매</td><td>리드 약 30건 판매</td><td>구매 업체 약 10곳 확보(한 곳당 월 2~3건). 신청이 전국에서 들어오므로 지역별로 업체를 갖춰야 합니다</td></tr>
-      </tbody>
-    </table></div>
-  </div>
-
-  <div class="sub-sec">
-    <h3>민감도 (광고비 150만 원, 신청 3%)</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>추천요청률 \ 매칭</th><th class="n">1:2 × ₩10만</th><th class="n">1:3 × ₩10만</th></tr></thead>
-      <tbody>
-        <tr><td>30%</td><td class="n">+₩39만</td><td class="n pos"><strong>+₩137만 (기준)</strong></td></tr>
-        <tr><td>40%</td><td class="n">+₩104만</td><td class="n pos">+₩236만</td></tr>
-      </tbody>
-    </table></div>
-    <p class="lede">매칭 업체를 2곳에서 3곳으로 늘리는 효과가 추천요청률 10%p보다 큽니다. 두 사람의 숫자가 곱해지는 구조라서, 한쪽이 미달이면 전체가 줄어듭니다.</p>
-  </div>
+  </details>
 </section>
 
-<!-- 2 -->
-<section id="s2">
-  <div class="eyebrow">2 · 첫 달 테스트</div>
-  <h2>마케팅 150만 원으로 기준 숫자를 검증한다</h2>
+<!-- 03 -->
+<section id="s3" class="band">
+  <div class="sec-head"><span class="no">03</span><h2>첫 달 테스트</h2></div>
+  <p class="takeaway">광고비 ₩150만을 1차 ₩50만, 2차 ₩100만으로 나눠 씁니다. 1차 합격 기준을 넘을 때만 2차를 씁니다.</p>
   <div class="tbl"><table>
-    <thead><tr><th>기준 숫자가 모두 나올 때</th><th class="n">값</th></tr></thead>
+    <thead><tr><th>기준 숫자가 모두 나올 때 (광고비 ₩150만)</th><th class="n">값</th></tr></thead>
     <tbody>
       <tr><td>클릭 (네이버 예상 실적, 키워드 약 420개)</td><td class="n">약 1,100회</td></tr>
       <tr><td>신청 (3%)</td><td class="n">약 33건</td></tr>
@@ -276,202 +281,176 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     </tbody>
   </table></div>
 
-  <div class="sub-sec">
-    <h3>합격 기준</h3>
-    <p>광고비는 두 번에 나눠 씁니다. 1차 50만 원으로 방향을 보고, 합격하면 나머지 100만 원을 씁니다.</p>
-    <div class="tbl"><table>
-      <thead><tr><th>확인할 것</th><th>1차 (₩50만 · 2주 · 클릭 약 520회)</th><th>불합격이면</th></tr></thead>
-      <tbody>
-        <tr><td>클릭 → 신청</td><td><strong>신청 10건 이상</strong> (약 2% 이상)</td><td>광고를 멈추고 랜딩과 신청 폼부터 고칩니다</td></tr>
-        <tr><td>신청 → 추천 요청</td><td><strong>추천 3명 이상</strong></td><td>추천 버튼의 위치와 문구부터 고칩니다</td></tr>
-        <tr><td>업체 구매</td><td><strong>추천 1명당 평균 2곳 이상이 10만 원에 구매</strong></td><td>리드 단가와 매칭 수를 다시 정합니다</td></tr>
-      </tbody>
-    </table></div>
-    <p class="lede">셋 다 합격하면 2차 100만 원을 써서 누적 신청 30건 이상(기획 문서의 최소 표본)을 채우고, 광고비를 늘릴지 정합니다.</p>
-  </div>
-
-  <div class="sub-sec">
-    <h3>운영 방법</h3>
-    <ul>
-      <li><strong>하루 상한:</strong> 1차는 하루 약 ₩3.6만(2주), 2차는 하루 약 ₩3.3만(한 달)입니다.</li>
-      <li><strong>키워드:</strong> 평형+비용 키워드(「34평인테리어비용」)와 평형 키워드부터 켭니다. 「인테리어견적」 같은 대표 키워드는 1위가 17,080원이라 2차부터 일부만 켭니다.</li>
-      <li><strong>순위 비교:</strong> 같은 묶음을 상위(1~2위)와 하위(4~5위)로 나눠, 순위가 높을수록 전환율이 오르는지 잽니다.</li>
-      <li><strong>2주 차 점검:</strong> 클릭은 있는데 신청이 없으면 광고보다 신청 폼, 특히 첨부 단계를 먼저 봅니다.</li>
-      <li><strong>광고 전 확인 (비용 0원):</strong> 파트너가 인테리어 업체 5~10곳에 「평형 · 공정 · 기존 견적서가 정리된 고객 정보를 10만 원에 사겠는지」 먼저 물어봅니다.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- 3 -->
-<section id="s3">
-  <div class="eyebrow">3 · 확장 시나리오</div>
-  <h2>150만 원에서 얼마까지 늘리면 이익이 가장 큰가</h2>
-  <p>기준 숫자가 검증되면 광고비를 늘립니다. 다만 이익은 광고비에 비례해서 늘지 않고, <strong>월 약 ₩260만</strong>에서 가장 큽니다.</p>
+  <h3>1차 합격 기준 (₩50만 · 2주 · 클릭 약 520회)</h3>
   <div class="tbl"><table>
-    <thead><tr><th class="n">월 광고비</th><th class="n">클릭</th><th class="n">신청</th><th class="n">추천</th><th class="n">매출이익</th></tr></thead>
+    <thead><tr><th>확인할 것</th><th>합격</th><th>불합격이면</th></tr></thead>
     <tbody>
-      <tr><td class="n">₩50만</td><td class="n">525</td><td class="n">16</td><td class="n">4.7</td><td class="n">+₩87만</td></tr>
-      <tr><td class="n">₩150만 (시작)</td><td class="n">1,099</td><td class="n">33</td><td class="n">9.9</td><td class="n">+₩137만</td></tr>
-      <tr><td class="n">₩200만</td><td class="n">1,328</td><td class="n">40</td><td class="n">12.0</td><td class="n">+₩147만</td></tr>
-      <tr class="hl"><td class="n">₩260만 (최대)</td><td class="n">1,576</td><td class="n">47</td><td class="n">14.2</td><td class="n">+₩152만</td></tr>
-      <tr><td class="n">₩300만</td><td class="n">1,725</td><td class="n">52</td><td class="n">15.5</td><td class="n">+₩151만</td></tr>
-      <tr><td class="n">₩500만</td><td class="n">2,337</td><td class="n">70</td><td class="n">21.0</td><td class="n">+₩111만</td></tr>
+      <tr><td>클릭 → 신청</td><td><strong>신청 10건 이상</strong> (약 2% 이상)</td><td>광고를 멈추고 랜딩과 신청 폼부터 고칩니다</td></tr>
+      <tr><td>신청 → 추천 요청</td><td><strong>추천 3명 이상</strong></td><td>추천 버튼의 위치와 문구부터 고칩니다</td></tr>
+      <tr><td>업체 구매</td><td><strong>추천 1명당 평균 2곳 이상이 10만 원에 구매</strong></td><td>리드 단가와 매칭 수를 다시 정합니다</td></tr>
     </tbody>
   </table></div>
+  <p class="lede">셋 다 합격하면 2차 ₩100만으로 누적 신청 30건 이상(기획 문서의 최소 표본)을 채우고, 광고비를 늘릴지 정합니다.</p>
 
-  <div class="sub-sec">
-    <h3>비례해서 늘지 않는 이유</h3>
-    <p>키워드마다 검색하는 사람 수가 정해져 있어서, 광고비를 늘리면 이미 검색하는 사람들 앞에 더 비싼 자리를 사게 됩니다.</p>
+  <h3>운영 방법</h3>
+  <ul>
+    <li><strong>광고 전 (비용 0원):</strong> 파트너가 인테리어 업체 5~10곳에 「평형 · 공정 · 기존 견적서가 정리된 고객 정보를 10만 원에 사겠는지」 먼저 물어봅니다.</li>
+    <li><strong>하루 상한:</strong> 1차는 하루 약 ₩3.6만(2주), 2차는 하루 약 ₩3.3만(한 달)입니다.</li>
+    <li><strong>키워드:</strong> 평형+비용(「34평인테리어비용」)과 평형 키워드부터 켭니다. 대표 키워드는 2차부터 일부만 켭니다.</li>
+    <li><strong>순위 비교:</strong> 같은 묶음을 상위(1~2위)와 하위(4~5위)로 나눠, 순위가 높을수록 전환율이 오르는지 잽니다.</li>
+    <li><strong>2주 차 점검:</strong> 클릭은 있는데 신청이 없으면 신청 폼, 특히 첨부 단계를 먼저 봅니다.</li>
+  </ul>
+</section>
+
+<!-- 04 -->
+<section id="s4" class="band alt">
+  <div class="sec-head"><span class="no">04</span><h2>확장</h2></div>
+  <p class="takeaway">검증에 성공하면 광고비를 늘립니다. 이익은 비례해서 늘지 않고, 월 약 ₩260만에서 가장 큽니다 (+₩152만).</p>
+  <div class="tbl"><table>
+    <thead><tr><th class="n">월 광고비</th><th class="n">클릭</th><th class="n">신청</th><th class="n">신청 1건 원가</th><th class="n">건당 이익</th><th class="n">매출이익</th></tr></thead>
+    <tbody>
+      <tr><td class="n">₩50만</td><td class="n">525</td><td class="n">16</td><td class="n">₩34,500</td><td class="n">+₩55,500</td><td class="n">+₩87만</td></tr>
+      <tr><td class="n">₩150만 (시작)</td><td class="n">1,099</td><td class="n">33</td><td class="n">₩48,300</td><td class="n">+₩41,700</td><td class="n">+₩137만</td></tr>
+      <tr><td class="n">₩200만</td><td class="n">1,328</td><td class="n">40</td><td class="n">₩53,000</td><td class="n">+₩37,000</td><td class="n">+₩147만</td></tr>
+      <tr class="hl"><td class="n">₩260만 (최대)</td><td class="n">1,576</td><td class="n">47</td><td class="n">₩57,800</td><td class="n">+₩32,200</td><td class="n">+₩152만</td></tr>
+      <tr><td class="n">₩300만</td><td class="n">1,725</td><td class="n">52</td><td class="n">₩60,800</td><td class="n">+₩29,200</td><td class="n">+₩151만</td></tr>
+      <tr><td class="n">₩500만</td><td class="n">2,337</td><td class="n">70</td><td class="n">₩74,100</td><td class="n">+₩15,900</td><td class="n">+₩111만</td></tr>
+    </tbody>
+  </table></div>
+  <p class="lede">키워드마다 검색하는 사람 수가 정해져 있어서, 광고비를 늘리면 더 비싼 자리를 사게 됩니다. 신청 1건 원가가 오르고 건당 이익이 줄어듭니다.</p>
+
+  <details class="more"><summary>키워드 한 개로 보는 예: 「34평인테리어비용」</summary>
     <div class="tbl"><table>
-      <thead><tr><th>「34평인테리어비용」 입찰가 (모바일, 월)</th><th class="n">클릭</th><th class="n">비용</th><th class="n">클릭 1회 비용</th></tr></thead>
+      <thead><tr><th>입찰가 (모바일, 월)</th><th class="n">클릭</th><th class="n">비용</th><th class="n">클릭 1회 비용</th></tr></thead>
       <tbody>
         <tr><td>₩2,000</td><td class="n">6</td><td class="n">₩1만</td><td class="n">₩1,730</td></tr>
         <tr><td>₩3,000</td><td class="n">57</td><td class="n">₩14.7만</td><td class="n">₩2,586</td></tr>
         <tr><td>₩5,000</td><td class="n">57 (그대로)</td><td class="n">₩24.5만</td><td class="n">₩4,298</td></tr>
       </tbody>
     </table></div>
-    <p class="lede">싼 클릭이 먼저 소진되면 새로 사는 클릭이 비싸집니다. 월 약 ₩260만 지점에서 새 클릭 1회의 값이 클릭 1회가 버는 돈(약 2,600원)과 같아집니다.</p>
-  </div>
-
-  <div class="sub-sec">
-    <h3>롱테일 키워드를 넓힌 효과</h3>
+  </details>
+  <details class="more"><summary>롱테일 키워드를 넓힌 효과</summary>
     <div class="tbl"><table>
-      <thead><tr><th>키워드 풀</th><th class="n">₩150만일 때 매출이익</th><th class="n">이익이 가장 큰 광고비</th><th class="n">최대 매출이익</th><th class="n">₩500만일 때</th></tr></thead>
+      <thead><tr><th>키워드 풀</th><th class="n">₩150만일 때</th><th class="n">이익이 가장 큰 광고비</th><th class="n">최대 매출이익</th><th class="n">₩500만일 때</th></tr></thead>
       <tbody>
         <tr><td>상위 약 100개</td><td class="n">+₩99만</td><td class="n">₩195만</td><td class="n">+₩102만</td><td class="n">+₩14만</td></tr>
         <tr class="hl"><td>롱테일 포함 약 420개</td><td class="n">+₩137만</td><td class="n">₩260만</td><td class="n">+₩152만</td><td class="n">+₩111만</td></tr>
       </tbody>
     </table></div>
-    <p class="lede">키워드를 더 넓히면 이익이 가장 큰 광고비가 더 올라갑니다. 방법은 시드 키워드 추가(단지명, 구축·신축 + 평형 + 비용, 올수리 견적)와, 어드민 검색광고 루프로 실제 클릭이 나오는 롱테일을 찾는 것입니다. 전환율이나 리드 가치가 오르면 같은 키워드로도 더 늘릴 수 있습니다.</p>
-  </div>
+    <p class="lede">키워드를 더 넓히면 이익이 가장 큰 광고비가 더 올라갑니다. 방법은 시드 키워드 추가(단지명, 구축·신축 + 평형 + 비용, 올수리 견적)와, 어드민 검색광고 루프로 실제 클릭이 나오는 롱테일을 찾는 것입니다.</p>
+  </details>
 </section>
 
-<!-- 4 -->
-<section id="s4">
-  <div class="eyebrow">4 · 네이버 키워드 실측</div>
-  <h2>검색광고 API 조회 결과 (2026-09-29)</h2>
-  <p>인스캔 어드민 검색광고 설정(주제어 · 의도어 · 제외어)으로 연관 키워드 2,173개를 걸러 443개가 남았습니다. 입찰가는 그 순위에 뜨려면 걸어야 하는 금액이고, 실제 클릭 단가는 보통 이보다 낮습니다.</p>
+<!-- 05 -->
+<section id="s5" class="band">
+  <div class="sec-head"><span class="no">05</span><h2>네이버 키워드 실측</h2></div>
+  <p class="takeaway">평형+비용 키워드가 싸고 의도도 분명합니다. 대표 키워드 「인테리어견적」은 1위가 ₩17,080이라 첫 달에는 일부만 씁니다.</p>
   <div class="tbl"><table>
     <thead><tr><th>의도별 묶음</th><th class="n">키워드</th><th class="n">월 클릭</th><th class="n">1위</th><th class="n">3위</th><th class="n">5위</th></tr></thead>
     <tbody>
-      <tr><td>A · 대표 + 견적 · 비용<small>인테리어견적(1위 ₩17,080), 인테리어견적비교, 리모델링비용</small></td><td class="n">77</td><td class="n">327</td><td class="n">₩9,082</td><td class="n">₩7,338</td><td class="n">₩5,431</td></tr>
-      <tr><td>B · 평형 + 비용 · 견적<small>34평인테리어비용, 24평인테리어비용</small></td><td class="n">96</td><td class="n">222</td><td class="n">₩3,756</td><td class="n">₩2,733</td><td class="n">₩1,990</td></tr>
+      <tr><td>A · 대표 + 견적 · 비용<small>인테리어견적, 인테리어견적비교, 리모델링비용</small></td><td class="n">77</td><td class="n">327</td><td class="n">₩9,082</td><td class="n">₩7,338</td><td class="n">₩5,431</td></tr>
+      <tr class="hl"><td>B · 평형 + 비용 · 견적<small>34평인테리어비용, 24평인테리어비용</small></td><td class="n">96</td><td class="n">222</td><td class="n">₩3,756</td><td class="n">₩2,733</td><td class="n">₩1,990</td></tr>
       <tr><td>C · 평형만<small>25평인테리어, 34평인테리어</small></td><td class="n">185</td><td class="n">1,018</td><td class="n">₩3,483</td><td class="n">₩2,300</td><td class="n">₩1,944</td></tr>
       <tr><td>D · 대표 + 업체<small>인테리어업체, 리모델링업체</small></td><td class="n">65</td><td class="n">231</td><td class="n">₩7,534</td><td class="n">₩5,911</td><td class="n">₩4,569</td></tr>
     </tbody>
   </table></div>
-  <p class="lede">순위별 입찰가는 묶음별 상위 20개 키워드를 월 클릭 수로 가중 평균한 모바일 기준 값입니다.</p>
   <div class="note">
     <strong>어드민 설정 두 개를 시세에 맞춰야 합니다</strong>
-    <p>시험 입찰가(sa.test_bid)가 500원이라 평형 키워드 5위(약 ₩1,930)에도 못 미쳐 광고가 거의 노출되지 않습니다. 권장값은 약 ₩2,000입니다. 좋음 판정 기준(sa.good_max_cpa)은 ₩15,000이라 거의 판정이 나지 않습니다. 신청 1건 가치(약 ₩8.7만)에 맞춰 약 ₩60,000을 권합니다.</p>
+    <p>시험 입찰가(sa.test_bid) ₩500 → 약 ₩2,000: 지금 값은 평형 키워드 5위(약 ₩1,930)에도 못 미쳐 광고가 거의 노출되지 않습니다.<br>좋음 판정 기준(sa.good_max_cpa) ₩15,000 → 약 ₩60,000: 신청 1건 가치(약 ₩8.7만)에 맞춥니다.</p>
   </div>
+  <details class="more"><summary>조회 방법</summary>
+    <p class="lede">2026-09-29, 네이버 검색광고 API. 인스캔 어드민 검색광고 설정(주제어 · 의도어 · 제외어)으로 연관 키워드 2,173개를 걸러 443개가 남았습니다. 순위별 입찰가는 묶음별 상위 20개를 월 클릭 수로 가중 평균한 모바일 기준 값입니다. 입찰가는 그 순위에 뜨려면 걸어야 하는 금액이고, 실제 클릭 단가는 보통 이보다 낮습니다.</p>
+  </details>
 </section>
 
-<!-- 5 -->
-<section id="s5">
-  <div class="eyebrow">5 · 개발 · 운영</div>
-  <h2>개발비와 운영비</h2>
+<!-- 06 -->
+<section id="s6" class="band alt">
+  <div class="sec-head"><span class="no">06</span><h2>개발 · 운영</h2></div>
+  <p class="takeaway">지금까지 개발비는 약 ₩118만입니다. 앞으로 월 운영비는 약 ₩44만(보통 · 신청 30건)이고, 9월처럼 집중 개발하면 약 ₩121만입니다.</p>
 
-  <div class="sub-sec">
-    <h3>5-1. 이미 들어간 개발비: 약 ₩118만 (8/24~9/29)</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>항목</th><th>산출 근거</th><th class="n">US$</th><th class="n">원화</th></tr></thead>
-      <tbody>
-        <tr><td>Claude Team 좌석 (Ted)<span class="tag est">추정</span></td><td>월 $165 × 37일 ≈ $200 중 인스캔 비율 90%<small>청구서는 3좌석 월 $357.50(부가세 포함)이고, 좌석 단가는 합계를 나눠 추정했습니다. 인스캔 비율은 같은 기간 Ted님 전체 Claude Code 사용 중 인스캔 몫입니다.</small></td><td class="n">176</td><td class="n">₩246,400</td></tr>
-        <tr><td>Claude 추가 크레딧 (9월)<span class="tag ok">확인</span></td><td>Ted님 9월 크레딧 사용 $502.11과 부가세 10%<small>9/27 · 9/28 · 9/29에 $220씩 세 번 결제했습니다(크레딧 $200 + 부가세). 결제액 $660 중 잔액 $243.56은 다음 달로 넘어갑니다. 이안님 사용분은 제외했습니다.</small></td><td class="n">552</td><td class="n">₩772,800</td></tr>
-        <tr><td>서비스 안 AI 호출 (Anthropic API)<span class="tag est">추정</span></td><td>DB에 기록된 판독 115건 약 $29와 기록 밖 실험 호출 약 $30</td><td class="n">60</td><td class="n">₩84,000</td></tr>
-        <tr><td>호스팅 (AWS 서버 · DB · 저장소 · DNS)<span class="tag est">추정</span></td><td>인스캔 태그 비용 $20.74 확인, NAT 2대와 고정 IP 2개 약 $15 추정, 부가세 10%</td><td class="n">40</td><td class="n">₩56,000</td></tr>
-        <tr><td>도메인 inscan.kr<span class="tag est">추정</span></td><td>2026-09-28 후이즈 등록, 1년<small>등록은 확인했고, 금액은 .kr 시세로 잡았습니다.</small></td><td class="n">18</td><td class="n">₩25,000</td></tr>
-        <tr class="total"><td>합계</td><td></td><td class="n">846</td><td class="n">₩1,184,200</td></tr>
-      </tbody>
-    </table></div>
-    <p class="lede">최대치는 약 ₩144만입니다. 8월 크레딧 사용분이 사용자별로 보이지 않아, 조직 전체 7~8월 사용액 상한(부가세 포함 $183)을 더했습니다.</p>
-  </div>
-
-  <div class="sub-sec">
-    <h3>5-2. 개발에 쓴 AI 사용량</h3>
+  <h3>이미 들어간 개발비 (8/24~9/29)</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>항목</th><th>산출 근거</th><th class="n">US$</th><th class="n">원화</th></tr></thead>
+    <tbody>
+      <tr><td>Claude Team 좌석 (Ted)<span class="tag est">추정</span></td><td>월 $165 × 37일 중 인스캔 비율 90%</td><td class="n">176</td><td class="n">₩246,400</td></tr>
+      <tr><td>Claude 추가 크레딧 (9월)<span class="tag ok">확인</span></td><td>Ted님 사용 $502.11 + 부가세 10%</td><td class="n">552</td><td class="n">₩772,800</td></tr>
+      <tr><td>서비스 안 AI 호출<span class="tag est">추정</span></td><td>DB 기록 약 $29 + 기록 밖 실험 약 $30</td><td class="n">60</td><td class="n">₩84,000</td></tr>
+      <tr><td>호스팅 (AWS)<span class="tag est">추정</span></td><td>태그 비용 $20.74 + NAT · 고정 IP 약 $15 + 부가세</td><td class="n">40</td><td class="n">₩56,000</td></tr>
+      <tr><td>도메인 inscan.kr<span class="tag est">추정</span></td><td>9/28 후이즈 등록, 1년</td><td class="n">18</td><td class="n">₩25,000</td></tr>
+      <tr class="total"><td>합계</td><td>최대 약 ₩144만 (8월 크레딧 미확인분 포함)</td><td class="n">846</td><td class="n">₩1,184,200</td></tr>
+    </tbody>
+  </table></div>
+  <details class="more"><summary>크레딧 결제 내역과 산출 근거</summary>
+    <ul>
+      <li><strong>크레딧 결제:</strong> 9/27 · 9/28 · 9/29에 $220씩 세 번(크레딧 $200 + 부가세). 결제액 $660 중 잔액 $243.56은 다음 달로 넘어가고, 이안님 사용분은 뺐습니다.</li>
+      <li><strong>좌석:</strong> 청구서는 3좌석 월 $357.50(부가세 포함)입니다. 좌석 단가는 합계를 나눠 추정했고, 인스캔 비율은 같은 기간 Ted님 전체 Claude Code 사용 중 인스캔 몫입니다.</li>
+      <li><strong>최대치:</strong> 8월 크레딧은 사용자별로 보이지 않아, 조직 전체 7~8월 사용액 상한(부가세 포함 $183)을 더했습니다.</li>
+    </ul>
+  </details>
+  <details class="more"><summary>개발에 쓴 AI 사용량 (모델별 · 날짜별)</summary>
     <div class="grid">
-      <div class="box paperbox"><span class="sub">Claude Code 기록</span><span class="big num">세션 기록 257개 · 호출 27,167건</span><span class="sub">8/24~9/28, 하위 에이전트 포함</span></div>
+      <div class="box paperbox"><span class="sub">Claude Code 기록 (8/24~9/28)</span><span class="big num">세션 257개 · 호출 27,167건</span></div>
       <div class="box paperbox"><span class="sub">API 요금으로 환산하면</span><span class="big num">$4,691 (₩657만)</span><span class="sub">구독 덕분에 실제 지출($728)은 약 1/6입니다</span></div>
     </div>
     <div class="tbl"><table>
       <thead><tr><th>모델</th><th class="n">API 환산</th></tr></thead>
       <tbody>
-        <tr><td>Opus 5</td><td class="n">$2,504</td></tr>
-        <tr><td>Opus 5.5</td><td class="n">$1,259</td></tr>
-        <tr><td>Opus 4.6</td><td class="n">$561</td></tr>
-        <tr><td>Sonnet 4.6</td><td class="n">$175</td></tr>
-        <tr><td>Opus 4.8</td><td class="n">$147</td></tr>
-        <tr><td>Sonnet 5</td><td class="n">$46</td></tr>
+        <tr><td>Opus 5</td><td class="n">$2,504</td></tr><tr><td>Opus 5.5</td><td class="n">$1,259</td></tr><tr><td>Opus 4.6</td><td class="n">$561</td></tr>
+        <tr><td>Sonnet 4.6</td><td class="n">$175</td></tr><tr><td>Opus 4.8</td><td class="n">$147</td></tr><tr><td>Sonnet 5</td><td class="n">$46</td></tr>
       </tbody>
     </table></div>
     <div class="calc">
       <h3>날짜별 사용량 (API 환산 US$)</h3>
       <div class="bars" id="usageBars" role="img" aria-label="8월 24일부터 9월 28일까지 날짜별 사용량 막대그래프"></div>
       <div class="barlab"><span>8/24</span><span id="usagePeak"></span><span>9/28</span></div>
-      <p class="lede">주황 막대는 하루 $400이 넘은 날입니다. 9/26부터 사흘 연속 집중 개발이 이어졌고, 이 구간에서 좌석 한도를 넘겨 추가 크레딧이 빠졌습니다.</p>
+      <p class="lede">주황 막대는 하루 $400이 넘은 날입니다. 9/26부터 사흘 연속 집중 개발로 좌석 한도를 넘겨 추가 크레딧이 빠졌고, 9/28~9/29 하루 사이에만 약 $287이 빠졌습니다.</p>
+    </div>
+  </details>
+
+  <h3>월 운영비</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>구분</th><th>항목</th><th>산출 근거</th><th class="n">월 US$</th></tr></thead>
+    <tbody>
+      <tr><td>고정</td><td>AWS 프로덕션</td><td>DB(RDS db.t4g.micro) 약 $20 · NAT 2대 약 $8 · 고정 IP 약 $7 · 기타 약 $5 · 부가세</td><td class="n">44</td></tr>
+      <tr><td>고정</td><td>AWS 스테이징</td><td>프로덕션과 같은 구성 (9월 실측 기준)</td><td class="n">44</td></tr>
+      <tr><td>고정</td><td>도메인 · DNS</td><td>Route53 $0.5 · 도메인 연 약 $18 (다음 갱신 2027-09-28)</td><td class="n">2</td></tr>
+      <tr><td>고정</td><td>유지보수 도구 (Claude)</td><td>보통: 좌석 1개 · 집중 개발이면 크레딧 약 $552 추가</td><td class="n">165</td></tr>
+      <tr><td>변동</td><td>AI 판독</td><td>신청 1건당 약 $2 (도면 · 매칭 · 견적서 판독)</td><td class="n">건당 2</td></tr>
+    </tbody>
+  </table></div>
+  <div class="calc" id="ocalc">
+    <h3>운영비 계산기</h3>
+    <div class="ctrls">
+      <fieldset><legend>월 신청 건수</legend><div class="seg">
+        <label><input type="radio" name="vol" id="vol30" value="30" checked><span>30건</span></label>
+        <label><input type="radio" name="vol" id="vol100" value="100"><span>100건</span></label>
+        <label><input type="radio" name="vol" id="vol300" value="300"><span>300건</span></label>
+      </div></fieldset>
+      <fieldset><legend>유지보수 수준</legend><div class="seg">
+        <label><input type="radio" name="lvl" id="lvlMin" value="85"><span>최소</span></label>
+        <label><input type="radio" name="lvl" id="lvlMid" value="165" checked><span>보통</span></label>
+        <label><input type="radio" name="lvl" id="lvlMax" value="717"><span>집중</span></label>
+      </div></fieldset>
+    </div>
+    <p class="lede" id="lvlDesc"></p>
+    <div class="grid">
+      <div class="box"><span class="sub">월 운영비</span><span class="big num" id="oMonth"></span><span class="sub num" id="oBreak"></span></div>
+      <div class="box"><span class="sub">연 운영비</span><span class="big num" id="oYear"></span><span class="sub num" id="oYearUsd"></span></div>
     </div>
   </div>
-
-  <div class="sub-sec">
-    <h3>5-3. 호스팅 구성</h3>
-    <ul>
-      <li><strong>AWS 서울 리전:</strong> 웹(CloudFront · Lambda), DB(RDS PostgreSQL db.t4g.micro, 20GB), 파일(S3), NAT 인스턴스 2대, DNS(Route53)를 씁니다. 따로 쓰는 호스팅 업체는 없습니다.</li>
-      <li><strong>스테이징 실측:</strong> 9월 인스캔 태그 비용은 DB 약 $18이었습니다. 태그가 없는 NAT와 고정 IP는 실행 중인 리소스로 추정했습니다.</li>
-      <li><strong>프로덕션:</strong> 첫 배포 전입니다. 스테이징과 같은 구성으로 가정했습니다.</li>
-      <li><strong>도메인:</strong> inscan.kr은 9/28 후이즈에서 등록했고 AWS에 연결돼 있습니다. 다음 갱신은 2027-09-28입니다.</li>
-    </ul>
-  </div>
-
-  <div class="sub-sec">
-    <h3>5-4. 월 운영비 예측</h3>
-    <div class="tbl"><table>
-      <thead><tr><th>구분</th><th>항목</th><th>산출 근거</th><th class="n">월 US$</th></tr></thead>
-      <tbody>
-        <tr><td>고정</td><td>AWS 프로덕션</td><td>DB 약 $20, NAT 약 $8, 고정 IP 약 $7, 기타 약 $5, 부가세</td><td class="n">44</td></tr>
-        <tr><td>고정</td><td>AWS 스테이징</td><td>프로덕션과 같은 구성</td><td class="n">44</td></tr>
-        <tr><td>고정</td><td>도메인 · DNS</td><td>Route53 $0.5, 도메인 연 약 $18</td><td class="n">2</td></tr>
-        <tr><td>고정</td><td>유지보수 도구 (Claude)</td><td>보통 수준: 좌석 1개. 집중 개발이면 크레딧 약 $552 추가</td><td class="n">165</td></tr>
-        <tr><td>변동</td><td>AI 판독</td><td>신청 1건당 약 $2 (도면 · 매칭 · 견적서 판독)</td><td class="n">건당 2</td></tr>
-      </tbody>
-    </table></div>
-    <div class="calc" id="ocalc">
-      <h3>운영비 계산기</h3>
-      <div class="ctrls">
-        <fieldset><legend>월 신청 건수</legend><div class="seg">
-          <label><input type="radio" name="vol" id="vol30" value="30" checked><span>30건</span></label>
-          <label><input type="radio" name="vol" id="vol100" value="100"><span>100건</span></label>
-          <label><input type="radio" name="vol" id="vol300" value="300"><span>300건</span></label>
-        </div></fieldset>
-        <fieldset><legend>유지보수 수준</legend><div class="seg">
-          <label><input type="radio" name="lvl" id="lvlMin" value="85"><span>최소</span></label>
-          <label><input type="radio" name="lvl" id="lvlMid" value="165" checked><span>보통</span></label>
-          <label><input type="radio" name="lvl" id="lvlMax" value="717"><span>집중</span></label>
-        </div></fieldset>
-      </div>
-      <p class="lede" id="lvlDesc"></p>
-      <div class="grid">
-        <div class="box"><span class="sub">월 운영비</span><span class="big num" id="oMonth"></span><span class="sub num" id="oBreak"></span></div>
-        <div class="box"><span class="sub">연 운영비</span><span class="big num" id="oYear"></span><span class="sub num" id="oYearUsd"></span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sub-sec">
-    <h3>5-5. 운영비 절감</h3>
+  <details class="more"><summary>운영비 줄이는 방법</summary>
     <ul>
       <li><strong>개발을 쉬는 기간에는 스테이징을 끕니다.</strong> 월 약 $44(₩6만)가 줄어듭니다.</li>
       <li><strong>매칭 3회 다수결을 1회로 줄이면</strong> 신청 1건당 약 $0.34가 줄어듭니다. 대신 매칭 정확도가 떨어질 수 있습니다.</li>
-      <li><strong>개발 강도가 크레딧을 좌우합니다.</strong> 9/28~9/29 하루 사이에만 약 $287이 빠졌습니다. 기능 개발을 몰아서 하는 달과 쉬는 달의 운영비가 크게 다릅니다.</li>
+      <li><strong>기능 개발을 몰아서 하는 달과 쉬는 달</strong>의 크레딧 비용이 크게 다릅니다.</li>
     </ul>
-  </div>
+  </details>
 </section>
 
-<!-- 6 -->
-<section id="s6">
-  <div class="eyebrow">6 · 계산기</div>
-  <h2>마케팅 손익 계산기</h2>
-  <p>광고비별 클릭 수는 네이버 입찰가별 예상 실적(키워드 약 420개)으로 만든 곡선을 씁니다. 나머지 값을 바꾸면 매출이익과, 이익이 가장 큰 광고비가 다시 계산됩니다.</p>
+<!-- 07 -->
+<section id="s7" class="band">
+  <div class="sec-head"><span class="no">07</span><h2>마케팅 손익 계산기</h2></div>
+  <p class="takeaway">숫자를 바꾸면 매출이익과 이익이 가장 큰 광고비가 다시 계산됩니다. 테스트가 끝나면 실측값을 넣어 다음 달 광고비를 정합니다.</p>
   <div class="calc" id="mcalc">
     <div class="fields">
       <label for="mBudget">월 광고비 (만 원, 부가세 포함)<input id="mBudget" type="number" inputmode="numeric" min="0" max="1700" step="10" value="150"></label>
@@ -488,30 +467,31 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
       <div class="box"><span class="sub">이익이 가장 큰 광고비</span><span class="big num" id="rBest"></span><span class="sub num" id="rBestP"></span></div>
     </div>
     <svg class="chart" id="pchart" viewBox="0 0 640 240" role="img" aria-label="광고비에 따른 매출이익 곡선"></svg>
-    <p class="lede">가로축은 월 광고비, 세로축은 매출이익입니다. 파란 점은 입력한 광고비, 초록 점은 이익이 가장 큰 광고비입니다.</p>
+    <p class="lede">가로축 월 광고비, 세로축 매출이익. 파란 점은 입력한 광고비, 초록 점은 이익이 가장 큰 광고비입니다. 광고비별 클릭 수는 네이버 입찰가별 예상 실적(키워드 약 420개)으로 만든 곡선입니다.</p>
   </div>
 </section>
 
-<!-- 7 -->
-<section id="s7">
-  <div class="eyebrow">7 · 부록</div>
-  <h2>가정 · 출처 · 확인이 필요한 것</h2>
+<!-- 08 -->
+<section id="s8" class="band alt">
+  <div class="sec-head"><span class="no">08</span><h2>부록 · 가정과 출처</h2></div>
+  <p class="takeaway">클릭 수와 입찰가는 네이버 조회값이고, 전환율 두 개와 판매 조건은 검증할 가설입니다.</p>
   <div class="tbl"><table>
     <thead><tr><th>값</th><th>종류</th><th>출처 · 근거</th></tr></thead>
     <tbody>
       <tr><td>광고비별 클릭 수</td><td><span class="tag ok">조회</span></td><td>네이버 검색광고 API 입찰가별 예상 실적(2026-09-29), 키워드 약 420개 × 모바일 · PC. 네이버 추정 모델 값이라 실제와 다를 수 있습니다</td></tr>
       <tr><td>순위별 입찰가</td><td><span class="tag ok">조회</span></td><td>네이버 검색광고 API 순위별 평균 입찰가</td></tr>
-      <tr><td>클릭 → 신청 3%</td><td><span class="tag est">가설</span></td><td>Ted 기준값. 참고로 2025년 구글 광고 전 업종 평균은 7.52%이고(WordStream), 인스캔은 파일 첨부가 있어 이보다 낮게 잡았습니다</td></tr>
+      <tr><td>클릭 → 신청 3%</td><td><span class="tag est">가설</span></td><td>Ted 기준값. 2025년 구글 광고 전 업종 평균은 7.52%(WordStream)이고, 인스캔은 파일 첨부가 있어 이보다 낮게 잡았습니다</td></tr>
       <tr><td>신청 → 추천 30%</td><td><span class="tag est">가설</span></td><td>Ted 기준값. 측정 지점은 회신 견적서의 「업체 추천받기」 클릭입니다</td></tr>
       <tr><td>1:3 × ₩10만</td><td><span class="tag est">가설</span></td><td>파트너 영업 목표. 업체 구매율 100% 가정</td></tr>
       <tr><td>AI 판독비 신청 1건 약 $2</td><td><span class="tag est">추정</span></td><td>DB 판독 기록과 도면 판독 검증 기록</td></tr>
-      <tr><td>개발비 · 크레딧</td><td><span class="tag ok">확인</span></td><td>Claude 조직 결제 · 사용량 화면(2026-09-29 조회), AWS Cost Explorer, Claude Code 세션 기록</td></tr>
+      <tr><td>개발비 · 크레딧</td><td><span class="tag ok">확인</span></td><td>Claude 조직 결제 · 사용량 화면(2026-09-29), AWS Cost Explorer, Claude Code 세션 기록</td></tr>
     </tbody>
   </table></div>
+  <h3>확정이 필요한 값</h3>
   <ul>
-    <li>확정이 필요한 값: 도메인 실제 결제액, Anthropic Console의 앱 API 실사용액, 8월 크레딧 사용분</li>
-    <li>매출이익은 매출에서 광고비와 AI 판독비만 뺀 값입니다. 운영비와 인건비는 빼지 않았습니다</li>
-    <li>광고 전 확인: 파트너가 업체 5~10곳의 구매 의향을 먼저 조사합니다</li>
+    <li>도메인 실제 결제액</li>
+    <li>Anthropic Console의 앱 API 실사용액</li>
+    <li>8월 크레딧 사용분</li>
   </ul>
 </section>
 
@@ -582,5 +562,17 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
 })();
 </script>
 
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll("nav.chips a"));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute("href"));});
+  function mark(){
+    var y=window.scrollY+120,cur=0;
+    secs.forEach(function(s,i){if(s&&s.offsetTop<=y)cur=i;});
+    links.forEach(function(a,i){var on=i===cur;a.classList.toggle("on",on);if(on&&a.scrollIntoView&&a.parentNode.scrollWidth>a.parentNode.clientWidth){var p=a.parentNode;p.scrollLeft=a.offsetLeft-p.clientWidth/2+a.clientWidth/2;}});
+  }
+  window.addEventListener("scroll",mark,{passive:true}); mark();
+})();
+</script>
 </body>
 </html>
