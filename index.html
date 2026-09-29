@@ -96,6 +96,17 @@ legend{font-size:13px;color:var(--muted);margin-bottom:8px}
 .bars div{flex:1;background:var(--accent);opacity:.8;border-radius:2px 2px 0 0;min-width:4px;position:relative}
 .bars div.hot{background:var(--warn);opacity:1}
 .barlab{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.unit{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.ucard{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.ucard h4{margin:0;font-size:15px}
+.ucard .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:14px}
+.ucard .row .num{font-size:16px;white-space:nowrap}
+.ucard .row.cost .num{color:var(--bad)}
+.ucard .row.rev .num{color:var(--ink)}
+.ucard .row.pl{border-top:2px solid var(--ink);padding-top:8px}
+.ucard .row.pl .num{font-size:24px;font-weight:700;color:var(--good)}
+.ucard small{color:var(--muted);font-size:12px;line-height:1.5}
+.ucard.key{border-color:var(--accent);background:var(--accent-soft)}
 footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:4px}
 @media (max-width:480px){.hero{padding:16px}.hero .total{font-size:38px}.box{padding:14px}}
 </style>
@@ -165,10 +176,47 @@ footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);paddin
     <div class="step"><span class="l">신청 → 추천 요청</span><span class="v num">30%</span><span class="o">Ted 책임</span></div>
     <div class="step"><span class="l">추천 1명 판매</span><span class="v num">3곳 × ₩10만</span><span class="o">파트너 책임</span></div>
   </div>
-  <div class="formula">신청 1건 가치 = 추천 30% × (3곳 × 10만 원) − AI 판독비 약 2,800원 ≈ 8.7만 원
-클릭 1회 가치 = 신청 3% × 8.7만 원                                ≈ 2,600원
-
-클릭을 2,600원보다 싸게 사는 동안은, 광고비를 늘릴수록 이익이 늘어난다</div>
+  <div class="sub-sec">
+    <h3>단위별 원가 · 기대수익 · 이익 (광고비 150만 원, 기준 전환율)</h3>
+    <div class="unit">
+      <div class="ucard">
+        <h4>클릭 1회</h4>
+        <div class="row cost"><span>원가</span><span class="num">₩1,449</span></div>
+        <small>평균 클릭 단가 ₩1,365 + AI 판독비 ₩84 (신청 3% × ₩2,800)</small>
+        <div class="row rev"><span>기대수익</span><span class="num">₩2,700</span></div>
+        <small>3% × 30% × ₩30만</small>
+        <div class="row pl"><span>이익</span><span class="num">+₩1,251</span></div>
+      </div>
+      <div class="ucard key">
+        <h4>신청 1건</h4>
+        <div class="row cost"><span>원가</span><span class="num">₩48,300</span></div>
+        <small>신청 1건 획득비 ₩45,500 (₩1,365 ÷ 3%) + AI 판독비 ₩2,800</small>
+        <div class="row rev"><span>기대수익</span><span class="num">₩90,000</span></div>
+        <small>추천 30% × ₩30만</small>
+        <div class="row pl"><span>이익</span><span class="num">+₩41,700</span></div>
+      </div>
+      <div class="ucard">
+        <h4>추천 1명</h4>
+        <div class="row cost"><span>원가</span><span class="num">₩161,000</span></div>
+        <small>신청 원가 ₩48,300 ÷ 30%</small>
+        <div class="row rev"><span>수익</span><span class="num">₩300,000</span></div>
+        <small>업체 3곳 × ₩10만</small>
+        <div class="row pl"><span>이익</span><span class="num">+₩139,000</span></div>
+      </div>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th>월 광고비</th><th class="n">평균 클릭 단가</th><th class="n">신청 1건 원가</th><th class="n">신청 1건 기대수익</th><th class="n">신청 1건 이익</th><th class="n">× 월 신청</th><th class="n">= 매출이익</th></tr></thead>
+      <tbody>
+        <tr><td>₩150만 (시작)</td><td class="n">₩1,365</td><td class="n">₩48,300</td><td class="n">₩90,000</td><td class="n pos">+₩41,700</td><td class="n">33건</td><td class="n pos">+₩137만</td></tr>
+        <tr class="hl"><td>₩260만 (최대 이익)</td><td class="n">₩1,650</td><td class="n">₩57,800</td><td class="n">₩90,000</td><td class="n pos">+₩32,200</td><td class="n">47건</td><td class="n pos">+₩152만</td></tr>
+        <tr><td>₩500만</td><td class="n">₩2,140</td><td class="n">₩74,100</td><td class="n">₩90,000</td><td class="n pos">+₩15,900</td><td class="n">70건</td><td class="n pos">+₩111만</td></tr>
+      </tbody>
+    </table></div>
+    <p class="lede">광고비를 늘리면 신청 1건의 원가가 올라가서 건당 이익은 줄어들고, 신청 건수는 늘어납니다. 둘을 곱한 매출이익은 월 약 ₩260만에서 가장 큽니다.</p>
+    <div class="formula">신청 1건 기대수익 = 추천요청률 × 추천 1명 수익        = 30% × ₩30만 = ₩90,000
+신청 1건 원가     = 평균 클릭 단가 ÷ 신청률 + AI 판독비
+본전 조건        : 평균 클릭 단가 &lt; 신청률 × (기대수익 − AI 판독비) ≈ ₩2,616</div>
+  </div>
 
   <div class="sub-sec">
     <h3>역할 분담</h3>
