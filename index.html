@@ -112,6 +112,16 @@ legend{font-size:13px;color:var(--muted);margin-bottom:8px}
 .ucard .brk{display:flex;flex-direction:column;gap:2px;padding-left:10px;border-left:2px solid var(--line);font-size:13px;color:var(--muted)}
 .ucard .brk div{display:flex;justify-content:space-between;gap:10px}
 .ucard .brk .num{font-size:13px;white-space:nowrap;color:var(--ink)}
+.budget{display:flex;flex-direction:column;gap:10px}
+.brow{display:flex;flex-direction:column;gap:4px}
+.blab{font-size:13px;color:var(--muted);font-weight:500}
+.bbar{display:flex;height:44px;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+.seg{display:flex;align-items:center;padding:0 10px;font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.seg.dev{background:var(--accent);color:var(--paper)}
+.seg.mkt{background:var(--warn-soft);color:var(--warn);border-left:2px solid var(--paper)}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.ask{display:flex;flex-direction:column;gap:12px;border:2px solid var(--accent);border-radius:8px;padding:16px;background:var(--paper)}
+@media (max-width:480px){.seg{font-size:11px;padding:0 6px}}
 footer{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:4px}
 @media (max-width:480px){.hero{padding:16px}.hero .total{font-size:38px}.box{padding:14px}}
 
@@ -149,45 +159,68 @@ header{padding-top:8px}
 </head>
 <body>
 <nav class="chips" aria-label="장 이동">
-  <a href="#s1">01 요약</a><a href="#s2">02 유닛 이코노믹스</a><a href="#s3">03 첫 달 테스트</a><a href="#s4">04 확장</a><a href="#s5">05 키워드</a><a href="#s6">06 개발·운영</a><a href="#s7">07 계산기</a><a href="#s8">08 부록</a>
+  <a href="#s1">01 예산 현황</a><a href="#s2">02 유닛 이코노믹스</a><a href="#s3">03 첫 달 테스트</a><a href="#s4">04 확장</a><a href="#s5">05 키워드</a><a href="#s6">06 개발·운영</a><a href="#s7">07 계산기</a><a href="#s8">08 부록</a>
 </nav>
 
 <div class="wrap">
 <header>
-  <div class="eyebrow">KEYSTONE PARTNERS · 인스캔</div>
+  <div class="eyebrow">키스톤 파트너스 · 인스캔</div>
   <h1>인스캔 사업 검증 계획</h1>
-  <div class="meta"><span>작성 2026-09-29</span><span>2인 공동 적립 · 파트너 공유용</span><span>환율 가정 US$1 = ₩1,400</span></div>
+  <div class="meta"><span>작성 2026-09-29 · 수정 2026-10-21</span><span>2인 공동 적립 · 파트너 공유용</span><span>환율 가정 1달러 = 1,400원</span></div>
 </header>
 
 <!-- 01 -->
 <section id="s1" class="band">
-  <div class="sec-head"><span class="no">01</span><h2>한눈에 보기</h2></div>
-  <p class="takeaway">첫 달에 ₩400만(1인당 ₩200만)을 모아, 광고비 ₩150만으로 기준 숫자 세 개가 나오는지 검증합니다.</p>
-  <div class="hero">
-    <div class="top"><span class="lede">첫 달 테스트 총비용</span><span class="total num">₩400만</span><span class="per num">1인당 ₩200만 × 2명</span></div>
-    <div class="grid">
-      <div class="box"><span class="sub">개발 · 운영비</span><span class="big num">₩250만</span>
-        <ol>
-          <li><span>이미 들어간 개발비 (8/24~9/29)</span><span class="num">₩118만</span></li>
-          <li><span>다음 한 달 운영비</span><span class="num">₩41만</span></li>
-          <li><span>다음 한 달 추가 크레딧</span><span class="num">₩77만</span></li>
-          <li><span>예비</span><span class="num">₩14만</span></li>
-        </ol>
-      </div>
-      <div class="box"><span class="sub">마케팅 테스트비</span><span class="big num">₩150만</span>
-        <ol>
-          <li><span>네이버 키워드 광고 (부가세 포함)</span><span class="num">₩150만</span></li>
-          <li><span>나눠 쓰기</span><span class="num">1차 ₩50만 → 2차 ₩100만</span></li>
-          <li><span>기준 숫자대로면 매출이익</span><span class="num pos">+₩137만</span></li>
-        </ol>
-      </div>
-    </div>
+  <div class="sec-head"><span class="no">01</span><h2>예산 현황</h2></div>
+  <p class="takeaway">개발 작업이 계획보다 커져 예산 ₩400만을 모두 썼습니다. 마케팅 테스트비 ₩150만 중 ₩73만만 쓸 수 있었고, ₩77만이 부족한 상태입니다. 지금까지 테스트에서 유효 고객은 아직 확보하지 못했습니다.</p>
+
+  <h3>원래 계획과 실제</h3>
+  <div class="budget">
+    <div class="brow"><span class="blab">계획 ₩400만</span>
+      <div class="bbar" style="width:99%"><span class="seg dev" style="width:62.5%">개발 · 운영 ₩250만 (62%)</span><span class="seg mkt" style="width:37.5%">마케팅 ₩150만 (38%)</span></div></div>
+    <div class="brow"><span class="blab">실제 ₩404만</span>
+      <div class="bbar" style="width:100%"><span class="seg dev" style="width:82%">개발 · 운영 ₩331만 (82%)</span><span class="seg mkt" style="width:18%">₩73만</span></div></div>
   </div>
-  <div class="grid">
-    <div class="box key"><span class="sub">검증할 기준 숫자</span><span class="big num">3% · 30% · 1:3 × ₩10만</span><span class="sub">클릭→신청 · 신청→추천 요청 · 추천 1명을 업체 3곳에 10만 원씩</span></div>
-    <div class="box key"><span class="sub">역할</span><span class="big">Ted · 파트너</span><span class="sub">Ted: 신청 3%와 추천 30% / 파트너: 1:3 × 10만 원으로 꾸준히 판매</span></div>
+  <div class="tbl"><table>
+    <thead><tr><th>항목</th><th class="n">계획</th><th class="n">실제</th><th class="n">차이</th></tr></thead>
+    <tbody>
+      <tr><td>개발 · 운영</td><td class="n">₩250만</td><td class="n">₩331만</td><td class="n neg">+₩81만</td></tr>
+      <tr><td>마케팅 (네이버 · 메타 광고)</td><td class="n">₩150만</td><td class="n">₩73만</td><td class="n neg">₩77만 부족</td></tr>
+      <tr class="total"><td>합계</td><td class="n">₩400만</td><td class="n">₩404만</td><td class="n neg">+₩4만</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>개발에서 한 일</h3>
+  <div class="grid4">
+    <div class="box paperbox"><span class="sub">작업 시간 (8/24~10/21)</span><span class="big num">207시간</span><span class="sub">47일 · 출시 전 115시간 · 출시 후 92시간</span></div>
+    <div class="box paperbox"><span class="sub">실제 서비스 반영 (9/28 출시 뒤)</span><span class="big num">46회</span><span class="sub">23일 동안 하루 평균 2회</span></div>
+    <div class="box paperbox"><span class="sub">변경 건수</span><span class="big num">137건</span><span class="sub">출시 전 64건 · 출시 후 73건</span></div>
   </div>
-  <p class="lede">매출이익은 매출에서 광고비와 AI 판독비만 뺀 값입니다. 운영비와 인건비는 빼지 않았습니다.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>출시 뒤 46회 반영한 내용</th><th class="n">횟수</th><th>예</th></tr></thead>
+    <tbody>
+      <tr><td>네이버 검색광고 자동 운영</td><td class="n">16회</td><td>키워드 발굴 · 입찰 · 판정 · 광고 문구 · 운영 계획 개편</td></tr>
+      <tr><td>신청 화면 · 간편 견적 개선</td><td class="n">10회</td><td>간편 견적 도입 · 금액 먼저 보여 주기 · 두 단계 넛지 · 신청 폼 4단계 · 평형 안내 페이지</td></tr>
+      <tr><td>측정 · 어드민</td><td class="n">9회</td><td>신청 단계별 집계 · 유입 경로 구분 · 봇 방문 거르기 · 접수 목록 · 상담 기록</td></tr>
+      <tr><td>서비스 기반</td><td class="n">5회</td><td>첫 출시 · 안드로이드 파일 올리기 · 문자 알림 · 데이터베이스 확장</td></tr>
+      <tr><td>견적 정확도</td><td class="n">3회</td><td>견적서 수량 반영 · 공종별 차이 계산 · 근거 표시</td></tr>
+      <tr><td>메타 광고 연동</td><td class="n">3회</td><td>인스턴트 양식 → 간편 견적 자동 연결 · 광고비 매일 자동 반영</td></tr>
+    </tbody>
+  </table></div>
+  <p class="lede">광고를 켠 뒤 들어온 결과를 보고 신청 화면과 측정을 계속 고쳤습니다. 작업 시간과 변경 건수는 인스캔 저장소 작업만 셌습니다.</p>
+
+  <h3>그래서 추가로 든 비용</h3>
+  <div class="tbl"><table>
+    <thead><tr><th>기간</th><th class="n">계획</th><th class="n">실제</th><th class="n">차이</th><th>이유</th></tr></thead>
+    <tbody>
+      <tr><td>출시 전 (8/24~9/29)</td><td class="n">₩118만</td><td class="n">₩130만</td><td class="n neg">+₩12만</td><td>같은 목적의 테버 작업을 개발비에 포함</td></tr>
+      <tr><td>출시 후 (9/30~10/21)</td><td class="n">₩132만</td><td class="n">₩202만</td><td class="n neg">+₩70만</td><td>클로드 추가 충전이 계획 ₩77만 → 실제 ₩178만</td></tr>
+      <tr class="total"><td>합계</td><td class="n">₩250만</td><td class="n">₩331만</td><td class="n neg">+₩81만</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p class="lede">출시 후 계획 ₩132만은 운영비 ₩41만 · 추가 크레딧 ₩77만 · 예비 ₩14만이었습니다. 실제는 클로드 추가 충전 ₩178만 · 좌석 ₩16만 · 서버 ₩8만입니다.</p>
+
+  <p class="lede">모든 금액은 부가세 포함, 1달러 = 1,400원으로 환산했습니다. 클로드 비용은 프로젝트로 나누지 않고 모두 인스캔 개발비로 잡았습니다.</p>
 </section>
 
 <!-- 02 -->
@@ -196,8 +229,8 @@ header{padding-top:8px}
   <p class="takeaway">기준 숫자대로면 신청 1건당 +₩41,700, 추천 1명당 +₩139,000이 남습니다. 추천 1명당 수익이 ₩16만을 넘어야 이익입니다.</p>
   <div class="funnel">
     <div class="step"><span class="l">클릭</span><span class="v num">100%</span><span class="o">네이버 검색광고</span></div>
-    <div class="step"><span class="l">클릭 → 신청</span><span class="v num">3%</span><span class="o">Ted 책임</span></div>
-    <div class="step"><span class="l">신청 → 추천 요청</span><span class="v num">30%</span><span class="o">Ted 책임</span></div>
+    <div class="step"><span class="l">클릭 → 신청</span><span class="v num">3%</span><span class="o">테드 책임</span></div>
+    <div class="step"><span class="l">신청 → 추천 요청</span><span class="v num">30%</span><span class="o">테드 책임</span></div>
     <div class="step"><span class="l">추천 1명 판매</span><span class="v num">3곳 × ₩10만</span><span class="o">파트너 책임</span></div>
   </div>
 
@@ -209,7 +242,7 @@ header{padding-top:8px}
       <div class="row cost"><span>원가</span><span class="num">₩1,449</span></div>
       <div class="brk">
         <div><span>광고비 (평균 클릭 단가)</span><span class="num">₩1,365</span></div>
-        <div><span>AI 판독비 (0.03건 × ₩2,800)</span><span class="num">₩84</span></div>
+        <div><span>자동 판독비 (0.03건 × ₩2,800)</span><span class="num">₩84</span></div>
       </div>
       <div class="row rev"><span>기대수익</span><span class="num">₩2,700</span></div>
       <small>3% × 30% × ₩30만</small>
@@ -221,7 +254,7 @@ header{padding-top:8px}
       <div class="row cost"><span>원가</span><span class="num">₩48,300</span></div>
       <div class="brk">
         <div><span>광고비 (33.3회 × ₩1,365)</span><span class="num">₩45,500</span></div>
-        <div><span>AI 판독비</span><span class="num">₩2,800</span></div>
+        <div><span>자동 판독비</span><span class="num">₩2,800</span></div>
       </div>
       <div class="row rev"><span>기대수익</span><span class="num">₩90,000</span></div>
       <small>추천 30% × ₩30만</small>
@@ -233,7 +266,7 @@ header{padding-top:8px}
       <div class="row cost"><span>원가</span><span class="num">₩161,000</span></div>
       <div class="brk">
         <div><span>광고비 (111회 × ₩1,365)</span><span class="num">₩151,700</span></div>
-        <div><span>AI 판독비 (3.3건 × ₩2,800)</span><span class="num">₩9,300</span></div>
+        <div><span>자동 판독비 (3.3건 × ₩2,800)</span><span class="num">₩9,300</span></div>
       </div>
       <div class="row rev"><span>수익</span><span class="num">₩300,000</span></div>
       <small>업체 3곳 × ₩10만. 추천하지 않은 신청 2.3건의 비용도 이 1명이 부담합니다</small>
@@ -245,7 +278,7 @@ header{padding-top:8px}
   <div class="tbl"><table>
     <thead><tr><th>역할</th><th>책임 숫자</th><th>월 물량 (광고비 ₩150만)</th><th>손대는 곳</th></tr></thead>
     <tbody>
-      <tr><td>Ted · 제품 · 마케팅</td><td>클릭→신청 3% · 신청→추천 30%</td><td>신청 약 33건 · 추천 약 10명</td><td>광고 키워드 · 입찰 · 랜딩 · 신청 폼(첨부 단계) · 회신 견적서의 「업체 추천받기」 버튼</td></tr>
+      <tr><td>테드 · 제품 · 마케팅</td><td>클릭→신청 3% · 신청→추천 30%</td><td>신청 약 33건 · 추천 약 10명</td><td>광고 키워드 · 입찰 · 랜딩 · 신청 폼(첨부 단계) · 회신 견적서의 「업체 추천받기」 버튼</td></tr>
       <tr><td>파트너 · 영업</td><td>추천 1명당 업체 3곳 × 10만 원</td><td>리드 약 30건 판매</td><td>구매 업체 약 10곳 확보(한 곳당 월 2~3건). 신청이 전국에서 들어오므로 지역별로 갖춰야 합니다</td></tr>
     </tbody>
   </table></div>
@@ -258,12 +291,12 @@ header{padding-top:8px}
       <tr><td>40%</td><td class="n">+₩104만</td><td class="n pos">+₩236만</td></tr>
     </tbody>
   </table></div>
-  <p class="lede">매칭 업체를 2곳에서 3곳으로 늘리는 효과가 추천요청률 10%p보다 큽니다.</p>
+  <p class="lede">매칭 업체를 2곳에서 3곳으로 늘리는 효과가 추천요청률 10%포인트보다 큽니다.</p>
 
   <details class="more"><summary>계산식 보기</summary>
     <div class="formula">신청 1건 기대수익 = 추천요청률 × 추천 1명 수익       = 30% × ₩30만 = ₩90,000
-신청 1건 원가     = 평균 클릭 단가 ÷ 신청률 + AI 판독비 = ₩1,365 ÷ 3% + ₩2,800 = ₩48,300
-본전 조건        : 평균 클릭 단가 &lt; 신청률 × (기대수익 − AI 판독비) ≈ ₩2,616</div>
+신청 1건 원가     = 평균 클릭 단가 ÷ 신청률 + 자동 판독비 = ₩1,365 ÷ 3% + ₩2,800 = ₩48,300
+본전 조건        : 평균 클릭 단가 &lt; 신청률 × (기대수익 − 자동 판독비) ≈ ₩2,616</div>
   </details>
 </section>
 
@@ -278,8 +311,8 @@ header{padding-top:8px}
       <tr><td>신청 (3%)</td><td class="n">약 33건</td></tr>
       <tr><td>추천 요청 (30%)</td><td class="n">약 10명</td></tr>
       <tr><td>매출 (10명 × 30만 원)</td><td class="n">약 ₩297만</td></tr>
-      <tr><td>광고비 · AI 판독비</td><td class="n">−₩150만 · −₩9만</td></tr>
-      <tr class="total"><td>매출이익</td><td class="n pos">약 +₩137만 (ROAS 약 198%)</td></tr>
+      <tr><td>광고비 · 자동 판독비</td><td class="n">−₩150만 · −₩9만</td></tr>
+      <tr class="total"><td>매출이익</td><td class="n pos">약 +₩137만 (광고비 대비 매출 약 198%)</td></tr>
     </tbody>
   </table></div>
 
@@ -350,74 +383,68 @@ header{padding-top:8px}
   <div class="tbl"><table>
     <thead><tr><th>의도별 묶음</th><th class="n">키워드</th><th class="n">월 클릭</th><th class="n">1위</th><th class="n">3위</th><th class="n">5위</th></tr></thead>
     <tbody>
-      <tr><td>A · 대표 + 견적 · 비용<small>인테리어견적, 인테리어견적비교, 리모델링비용</small></td><td class="n">77</td><td class="n">327</td><td class="n">₩9,082</td><td class="n">₩7,338</td><td class="n">₩5,431</td></tr>
-      <tr class="hl"><td>B · 평형 + 비용 · 견적<small>34평인테리어비용, 24평인테리어비용</small></td><td class="n">96</td><td class="n">222</td><td class="n">₩3,756</td><td class="n">₩2,733</td><td class="n">₩1,990</td></tr>
-      <tr><td>C · 평형만<small>25평인테리어, 34평인테리어</small></td><td class="n">185</td><td class="n">1,018</td><td class="n">₩3,483</td><td class="n">₩2,300</td><td class="n">₩1,944</td></tr>
-      <tr><td>D · 대표 + 업체<small>인테리어업체, 리모델링업체</small></td><td class="n">65</td><td class="n">231</td><td class="n">₩7,534</td><td class="n">₩5,911</td><td class="n">₩4,569</td></tr>
+      <tr><td>가 · 대표 + 견적 · 비용<small>인테리어견적, 인테리어견적비교, 리모델링비용</small></td><td class="n">77</td><td class="n">327</td><td class="n">₩9,082</td><td class="n">₩7,338</td><td class="n">₩5,431</td></tr>
+      <tr class="hl"><td>나 · 평형 + 비용 · 견적<small>34평인테리어비용, 24평인테리어비용</small></td><td class="n">96</td><td class="n">222</td><td class="n">₩3,756</td><td class="n">₩2,733</td><td class="n">₩1,990</td></tr>
+      <tr><td>다 · 평형만<small>25평인테리어, 34평인테리어</small></td><td class="n">185</td><td class="n">1,018</td><td class="n">₩3,483</td><td class="n">₩2,300</td><td class="n">₩1,944</td></tr>
+      <tr><td>라 · 대표 + 업체<small>인테리어업체, 리모델링업체</small></td><td class="n">65</td><td class="n">231</td><td class="n">₩7,534</td><td class="n">₩5,911</td><td class="n">₩4,569</td></tr>
     </tbody>
   </table></div>
   <div class="note">
     <strong>어드민 설정 두 개를 시세에 맞춰야 합니다</strong>
-    <p>시험 입찰가(sa.test_bid) ₩500 → 약 ₩2,000: 지금 값은 평형 키워드 5위(약 ₩1,930)에도 못 미쳐 광고가 거의 노출되지 않습니다.<br>좋음 판정 기준(sa.good_max_cpa) ₩15,000 → 약 ₩60,000: 신청 1건 가치(약 ₩8.7만)에 맞춥니다.</p>
+    <p>어드민 「시험 입찰가」 ₩500 → 약 ₩2,000: 지금 값은 평형 키워드 5위(약 ₩1,930)에도 못 미쳐 광고가 거의 노출되지 않습니다.<br>어드민 「좋음 판정 기준」 ₩15,000 → 약 ₩60,000: 신청 1건 가치(약 ₩8.7만)에 맞춥니다.</p>
   </div>
   <details class="more"><summary>조회 방법</summary>
-    <p class="lede">2026-09-29, 네이버 검색광고 API. 인스캔 어드민 검색광고 설정(주제어 · 의도어 · 제외어)으로 연관 키워드 2,173개를 걸러 443개가 남았습니다. 순위별 입찰가는 묶음별 상위 20개를 월 클릭 수로 가중 평균한 모바일 기준 값입니다. 입찰가는 그 순위에 뜨려면 걸어야 하는 금액이고, 실제 클릭 단가는 보통 이보다 낮습니다.</p>
+    <p class="lede">2026-09-29, 네이버 검색광고 자동 조회. 인스캔 어드민 검색광고 설정(주제어 · 의도어 · 제외어)으로 연관 키워드 2,173개를 걸러 443개가 남았습니다. 순위별 입찰가는 묶음별 상위 20개를 월 클릭 수로 가중 평균한 모바일 기준 값입니다. 입찰가는 그 순위에 뜨려면 걸어야 하는 금액이고, 실제 클릭 단가는 보통 이보다 낮습니다.</p>
   </details>
 </section>
 
 <!-- 06 -->
 <section id="s6" class="band alt">
   <div class="sec-head"><span class="no">06</span><h2>개발 · 운영</h2></div>
-  <p class="takeaway">지금까지 개발비는 약 ₩118만입니다. 앞으로 월 운영비는 약 ₩44만(보통 · 신청 30건)이고, 9월처럼 집중 개발하면 약 ₩121만입니다.</p>
+  <p class="takeaway">지금까지 개발 · 운영비는 약 ₩331만입니다. 10월처럼 화면 개선을 이어가면 앞으로 한 달에 클로드만 약 ₩277만이 듭니다.</p>
 
-  <h3>이미 들어간 개발비 (8/24~9/29)</h3>
+  <h3>지금까지 쓴 개발 · 운영비 (8/24~10/21)</h3>
   <div class="tbl"><table>
-    <thead><tr><th>항목</th><th>산출 근거</th><th class="n">US$</th><th class="n">원화</th></tr></thead>
+    <thead><tr><th>항목</th><th>산출 근거</th><th class="n">원화</th></tr></thead>
     <tbody>
-      <tr><td>Claude Team 좌석 (Ted)<span class="tag est">추정</span></td><td>월 $165 × 37일 중 인스캔 비율 90%</td><td class="n">176</td><td class="n">₩246,400</td></tr>
-      <tr><td>Claude 추가 크레딧 (9월)<span class="tag ok">확인</span></td><td>Ted님 사용 $502.11 + 부가세 10%</td><td class="n">552</td><td class="n">₩772,800</td></tr>
-      <tr><td>서비스 안 AI 호출<span class="tag est">추정</span></td><td>DB 기록 약 $29 + 기록 밖 실험 약 $30</td><td class="n">60</td><td class="n">₩84,000</td></tr>
-      <tr><td>호스팅 (AWS)<span class="tag est">추정</span></td><td>태그 비용 $20.74 + NAT · 고정 IP 약 $15 + 부가세</td><td class="n">40</td><td class="n">₩56,000</td></tr>
-      <tr><td>도메인 inscan.kr<span class="tag est">추정</span></td><td>9/28 후이즈 등록, 1년</td><td class="n">18</td><td class="n">₩25,000</td></tr>
-      <tr class="total"><td>합계</td><td>최대 약 ₩144만 (8월 크레딧 미확인분 포함)</td><td class="n">846</td><td class="n">₩1,184,200</td></tr>
+      <tr><td>클로드 추가 충전 9월<span class="tag ok">확인</span></td><td>조직 결제 880달러(220달러 × 4번)에서 이안님 사용분을 뺀 605달러</td><td class="n">₩847,000</td></tr>
+      <tr><td>클로드 추가 충전 10월<span class="tag ok">확인</span></td><td>10/21까지 테드 사용 1,152.73달러 + 부가세. 자동 충전으로 100번 결제</td><td class="n">₩1,775,200</td></tr>
+      <tr><td>클로드 좌석<span class="tag est">추정</span></td><td>프리미엄 좌석 월 165달러(부가세 포함) × 58일</td><td class="n">₩446,600</td></tr>
+      <tr><td>앱 안 자동 판독<span class="tag est">추정</span></td><td>9월까지 판독 기록과 실험 호출</td><td class="n">₩84,000</td></tr>
+      <tr><td>서버 (시험 서버 · 실제 서비스)<span class="tag est">추정</span></td><td>9월 약 40달러 + 10월 약 56달러. 데이터베이스는 조회값, 중계 서버와 고정 주소는 실행 중인 장비로 추정</td><td class="n">₩134,400</td></tr>
+      <tr><td>도메인 (inscan.kr)<span class="tag est">추정</span></td><td>9/28 후이즈 등록, 1년</td><td class="n">₩25,000</td></tr>
+      <tr class="total"><td>합계</td><td>계획 ₩250만 대비 약 ₩81만 초과</td><td class="n">₩3,312,200</td></tr>
     </tbody>
   </table></div>
-  <details class="more"><summary>크레딧 결제 내역과 산출 근거</summary>
+  <details class="more"><summary>개발비를 이렇게 잡은 이유</summary>
     <ul>
-      <li><strong>크레딧 결제:</strong> 9/27 · 9/28 · 9/29에 $220씩 세 번(크레딧 $200 + 부가세). 결제액 $660 중 잔액 $243.56은 다음 달로 넘어가고, 이안님 사용분은 뺐습니다.</li>
-      <li><strong>좌석:</strong> 청구서는 3좌석 월 $357.50(부가세 포함)입니다. 좌석 단가는 합계를 나눠 추정했고, 인스캔 비율은 같은 기간 Ted님 전체 Claude Code 사용 중 인스캔 몫입니다.</li>
-      <li><strong>최대치:</strong> 8월 크레딧은 사용자별로 보이지 않아, 조직 전체 7~8월 사용액 상한(부가세 포함 $183)을 더했습니다.</li>
+      <li><strong>클로드 비용은 나누지 않고 모두 인스캔으로 잡았습니다.</strong> 10월 작업 기록을 보면 인스캔 38% · 테버 21% · 테도스 허브 15%인데, 테버와 테도스 허브 작업도 인스캔 광고 결과 정리와 화면 개선을 위한 것이었습니다.</li>
+      <li><strong>작업량이 커진 이유:</strong> 광고를 켠 뒤 결과를 보고 신청 화면을 계속 고쳤습니다(간편 견적 · 금액 먼저 보여 주기 · 두 단계 넛지 · 상담 기록 · 광고비 자동 집계).</li>
+      <li><strong>충전 방식:</strong> 9월에는 220달러씩 네 번, 10월에는 잔액이 5달러가 되면 15달러까지 채우는 자동 충전으로 100번 결제됐습니다.</li>
     </ul>
   </details>
-  <details class="more"><summary>개발에 쓴 AI 사용량 (모델별 · 날짜별)</summary>
+  <details class="more"><summary>개발에 쓴 클로드 사용량 (날짜별)</summary>
     <div class="grid">
-      <div class="box paperbox"><span class="sub">Claude Code 기록 (8/24~9/28)</span><span class="big num">세션 257개 · 호출 27,167건</span></div>
-      <div class="box paperbox"><span class="sub">API 요금으로 환산하면</span><span class="big num">$4,691 (₩657만)</span><span class="sub">구독 덕분에 실제 지출($728)은 약 1/6입니다</span></div>
+      <div class="box paperbox"><span class="sub">공식 단가로 환산한 사용량 (8/24~10/21)</span><span class="big num">약 10,080달러 (₩1,411만)</span></div>
+      <div class="box paperbox"><span class="sub">실제로 낸 돈 (충전 + 좌석)</span><span class="big num">약 2,192달러 (₩307만)</span><span class="sub">구독 덕분에 공식 단가의 약 1/5만 냈습니다</span></div>
     </div>
-    <div class="tbl"><table>
-      <thead><tr><th>모델</th><th class="n">API 환산</th></tr></thead>
-      <tbody>
-        <tr><td>Opus 5</td><td class="n">$2,504</td></tr><tr><td>Opus 5.5</td><td class="n">$1,259</td></tr><tr><td>Opus 4.6</td><td class="n">$561</td></tr>
-        <tr><td>Sonnet 4.6</td><td class="n">$175</td></tr><tr><td>Opus 4.8</td><td class="n">$147</td></tr><tr><td>Sonnet 5</td><td class="n">$46</td></tr>
-      </tbody>
-    </table></div>
     <div class="calc">
-      <h3>날짜별 사용량 (API 환산 US$)</h3>
-      <div class="bars" id="usageBars" role="img" aria-label="8월 24일부터 9월 28일까지 날짜별 사용량 막대그래프"></div>
-      <div class="barlab"><span>8/24</span><span id="usagePeak"></span><span>9/28</span></div>
-      <p class="lede">주황 막대는 하루 $400이 넘은 날입니다. 9/26부터 사흘 연속 집중 개발로 좌석 한도를 넘겨 추가 크레딧이 빠졌고, 9/28~9/29 하루 사이에만 약 $287이 빠졌습니다.</p>
+      <h3>날짜별 사용량 (공식 단가 환산, 달러)</h3>
+      <div class="bars" id="usageBars" role="img" aria-label="8월 24일부터 10월 21일까지 날짜별 사용량 막대그래프"></div>
+      <div class="barlab"><span>8/24</span><span id="usagePeak"></span><span>10/21</span></div>
+      <p class="lede">주황 막대는 하루 400달러가 넘은 날입니다. 9월 말과 10월 초 · 중순에 집중 개발이 몰려 좌석 한도를 넘겼고, 그만큼 추가 충전이 나갔습니다.</p>
     </div>
   </details>
 
   <h3>월 운영비</h3>
   <div class="tbl"><table>
-    <thead><tr><th>구분</th><th>항목</th><th>산출 근거</th><th class="n">월 US$</th></tr></thead>
+    <thead><tr><th>구분</th><th>항목</th><th>산출 근거</th><th class="n">월 달러</th></tr></thead>
     <tbody>
-      <tr><td>고정</td><td>AWS 프로덕션</td><td>DB(RDS db.t4g.micro) 약 $20 · NAT 2대 약 $8 · 고정 IP 약 $7 · 기타 약 $5 · 부가세</td><td class="n">44</td></tr>
-      <tr><td>고정</td><td>AWS 스테이징</td><td>프로덕션과 같은 구성 (9월 실측 기준)</td><td class="n">44</td></tr>
-      <tr><td>고정</td><td>도메인 · DNS</td><td>Route53 $0.5 · 도메인 연 약 $18 (다음 갱신 2027-09-28)</td><td class="n">2</td></tr>
-      <tr><td>고정</td><td>유지보수 도구 (Claude)</td><td>보통: 좌석 1개 · 집중 개발이면 크레딧 약 $552 추가</td><td class="n">165</td></tr>
-      <tr><td>변동</td><td>AI 판독</td><td>신청 1건당 약 $2 (도면 · 매칭 · 견적서 판독)</td><td class="n">건당 2</td></tr>
+      <tr><td>고정</td><td>서버 · 실제 서비스</td><td>데이터베이스 · 중계 서버 2대 · 고정 주소 2개 · 부가세 (10월 실측 기준)</td><td class="n">40</td></tr>
+      <tr><td>고정</td><td>서버 · 시험 서버</td><td>실제 서비스와 같은 구성</td><td class="n">40</td></tr>
+      <tr><td>고정</td><td>도메인 · 주소 관리</td><td>월 0.5달러 · 도메인 연 약 18달러 (다음 갱신 2027-09-28)</td><td class="n">2</td></tr>
+      <tr><td>고정</td><td>개발 · 유지보수 (클로드)</td><td>보통: 좌석 1개 · 집중: 10월 충전 속도(월 약 1,812달러) 추가</td><td class="n">165~1,977</td></tr>
+      <tr><td>변동</td><td>자동 판독</td><td>신청 1건당 약 2달러 (도면 · 매칭 · 견적서 판독)</td><td class="n">건당 2</td></tr>
     </tbody>
   </table></div>
   <div class="calc" id="ocalc">
@@ -428,10 +455,10 @@ header{padding-top:8px}
         <label><input type="radio" name="vol" id="vol100" value="100"><span>100건</span></label>
         <label><input type="radio" name="vol" id="vol300" value="300"><span>300건</span></label>
       </div></fieldset>
-      <fieldset><legend>유지보수 수준</legend><div class="seg">
+      <fieldset><legend>개발 강도</legend><div class="seg">
         <label><input type="radio" name="lvl" id="lvlMin" value="85"><span>최소</span></label>
-        <label><input type="radio" name="lvl" id="lvlMid" value="165" checked><span>보통</span></label>
-        <label><input type="radio" name="lvl" id="lvlMax" value="717"><span>집중</span></label>
+        <label><input type="radio" name="lvl" id="lvlMid" value="165"><span>보통</span></label>
+        <label><input type="radio" name="lvl" id="lvlMax" value="1977" checked><span>집중 (10월)</span></label>
       </div></fieldset>
     </div>
     <p class="lede" id="lvlDesc"></p>
@@ -442,9 +469,10 @@ header{padding-top:8px}
   </div>
   <details class="more"><summary>운영비 줄이는 방법</summary>
     <ul>
-      <li><strong>개발을 쉬는 기간에는 스테이징을 끕니다.</strong> 월 약 $44(₩6만)가 줄어듭니다.</li>
-      <li><strong>매칭 3회 다수결을 1회로 줄이면</strong> 신청 1건당 약 $0.34가 줄어듭니다. 대신 매칭 정확도가 떨어질 수 있습니다.</li>
-      <li><strong>기능 개발을 몰아서 하는 달과 쉬는 달</strong>의 크레딧 비용이 크게 다릅니다.</li>
+      <li><strong>팀 플랜에 포함된 개발용 크레딧 월 260달러를 받습니다.</strong> 결제 화면에서 조직을 연결하면 되고, 앱 안 자동 판독 요금을 여기서 낼 수 있습니다.</li>
+      <li><strong>화면 개선은 몰아서 하고, 결과를 보는 기간에는 쉽니다.</strong> 클로드 충전이 개발 강도에 따라 월 ₩23만에서 ₩277만까지 달라집니다.</li>
+      <li><strong>개발을 쉬는 기간에는 시험 서버를 끕니다.</strong> 월 약 40달러(₩6만)가 줄어듭니다.</li>
+      <li><strong>매칭 3회 다수결을 1회로 줄이면</strong> 신청 1건당 약 0.34달러가 줄어듭니다. 대신 매칭 정확도가 떨어질 수 있습니다.</li>
     </ul>
   </details>
 </section>
@@ -480,32 +508,32 @@ header{padding-top:8px}
   <div class="tbl"><table>
     <thead><tr><th>값</th><th>종류</th><th>출처 · 근거</th></tr></thead>
     <tbody>
-      <tr><td>광고비별 클릭 수</td><td><span class="tag ok">조회</span></td><td>네이버 검색광고 API 입찰가별 예상 실적(2026-09-29), 키워드 약 420개 × 모바일 · PC. 네이버 추정 모델 값이라 실제와 다를 수 있습니다</td></tr>
-      <tr><td>순위별 입찰가</td><td><span class="tag ok">조회</span></td><td>네이버 검색광고 API 순위별 평균 입찰가</td></tr>
-      <tr><td>클릭 → 신청 3%</td><td><span class="tag est">가설</span></td><td>Ted 기준값. 2025년 구글 광고 전 업종 평균은 7.52%(WordStream)이고, 인스캔은 파일 첨부가 있어 이보다 낮게 잡았습니다</td></tr>
-      <tr><td>신청 → 추천 30%</td><td><span class="tag est">가설</span></td><td>Ted 기준값. 측정 지점은 회신 견적서의 「업체 추천받기」 클릭입니다</td></tr>
+      <tr><td>광고비별 클릭 수</td><td><span class="tag ok">조회</span></td><td>네이버 검색광고 자동 조회의 입찰가별 예상 실적(2026-09-29), 키워드 약 420개 × 휴대폰 · 컴퓨터. 네이버 추정 모델 값이라 실제와 다를 수 있습니다</td></tr>
+      <tr><td>순위별 입찰가</td><td><span class="tag ok">조회</span></td><td>네이버 검색광고 자동 조회의 순위별 평균 입찰가</td></tr>
+      <tr><td>클릭 → 신청 3%</td><td><span class="tag est">가설</span></td><td>테드 기준값. 2025년 구글 광고 전 업종 평균은 7.52%(워드스트림 집계)이고, 인스캔은 파일 첨부가 있어 이보다 낮게 잡았습니다</td></tr>
+      <tr><td>신청 → 추천 30%</td><td><span class="tag est">가설</span></td><td>테드 기준값. 측정 지점은 회신 견적서의 「업체 추천받기」 클릭입니다</td></tr>
       <tr><td>1:3 × ₩10만</td><td><span class="tag est">가설</span></td><td>파트너 영업 목표. 업체 구매율 100% 가정</td></tr>
-      <tr><td>AI 판독비 신청 1건 약 $2</td><td><span class="tag est">추정</span></td><td>DB 판독 기록과 도면 판독 검증 기록</td></tr>
-      <tr><td>개발비 · 크레딧</td><td><span class="tag ok">확인</span></td><td>Claude 조직 결제 · 사용량 화면(2026-09-29), AWS Cost Explorer, Claude Code 세션 기록</td></tr>
+      <tr><td>자동 판독비 신청 1건 약 2달러</td><td><span class="tag est">추정</span></td><td>데이터베이스의 판독 기록과 도면 판독 검증 기록</td></tr>
+      <tr><td>개발비 · 크레딧</td><td><span class="tag ok">확인</span></td><td>클로드 조직 결제 · 사용량 화면(2026-10-21), 아마존 서버 비용 조회, 클로드 코드 작업 기록, 메타 광고 관리자, 네이버 검색광고 자동 조회</td></tr>
     </tbody>
   </table></div>
   <h3>확정이 필요한 값</h3>
   <ul>
     <li>도메인 실제 결제액</li>
-    <li>Anthropic Console의 앱 API 실사용액</li>
+    <li>앤트로픽 개발자 화면의 앱 판독 실사용액</li>
     <li>8월 크레딧 사용분</li>
   </ul>
 </section>
 
 <footer>
-  <span>인스캔 · Keystone Partners · 2026-09-29 기준. 금액은 US$1 = ₩1,400으로 환산했습니다.</span>
+  <span>인스캔 · 키스톤 파트너스 · 2026-10-21 기준. 금액은 1달러 = 1,400원으로 환산했습니다.</span>
 </footer>
 </div>
 
 <script>
 (function(){
   var CURVE=[[0,0],[10,192],[20,296],[30,380],[40,455],[50,525],[60,594],[70,659],[80,721],[90,782],[100,840],[110,895],[120,948],[130,1001],[140,1050],[150,1099],[160,1146],[170,1192],[180,1238],[190,1283],[200,1328],[210,1372],[220,1415],[230,1456],[240,1497],[250,1537],[260,1576],[270,1614],[280,1651],[290,1688],[300,1725],[310,1761],[320,1796],[330,1831],[340,1865],[350,1899],[360,1932],[370,1964],[380,1996],[390,2027],[400,2058],[410,2088],[420,2117],[430,2146],[440,2174],[450,2202],[460,2230],[470,2258],[480,2285],[490,2312],[500,2337],[510,2363],[520,2389],[530,2414],[540,2439],[550,2464],[560,2487],[570,2511],[580,2534],[590,2558],[600,2581],[610,2604],[620,2627],[630,2650],[640,2673],[650,2696],[660,2718],[670,2740],[680,2762],[690,2783],[700,2804],[710,2825],[720,2846],[730,2866],[740,2886],[750,2907],[760,2927],[770,2946],[780,2966],[790,2984],[800,3003],[810,3020],[820,3038],[830,3054],[840,3071],[850,3087],[860,3104],[870,3120],[880,3136],[890,3152],[900,3167],[910,3183],[920,3198],[930,3213],[940,3228],[950,3243],[960,3258],[970,3273],[980,3288],[990,3302],[1000,3316],[1010,3330],[1020,3343],[1030,3357],[1040,3370],[1050,3383],[1060,3396],[1070,3408],[1080,3420],[1090,3432],[1100,3443],[1110,3454],[1120,3465],[1130,3476],[1140,3488],[1150,3498],[1160,3509],[1170,3520],[1180,3530],[1190,3541],[1200,3551],[1210,3561],[1220,3572],[1230,3582],[1240,3592],[1250,3601],[1260,3611],[1270,3621],[1280,3631],[1290,3641],[1300,3651],[1310,3660],[1320,3670],[1330,3680],[1340,3690],[1350,3699],[1360,3709],[1370,3718],[1380,3728],[1390,3737],[1400,3746],[1410,3755],[1420,3764],[1430,3774],[1440,3782],[1450,3790],[1460,3797],[1470,3805],[1480,3811],[1490,3818],[1500,3825],[1510,3831],[1520,3838],[1530,3845],[1540,3851],[1550,3858],[1560,3865],[1570,3872],[1580,3878],[1590,3885],[1600,3892],[1610,3898],[1620,3905],[1630,3912],[1640,3918],[1650,3923],[1660,3929],[1670,3934],[1680,3939],[1690,3944],[1700,3947]];
-  var USAGE=[["2026-08-24",33],["2026-08-25",61],["2026-08-26",62],["2026-08-27",25],["2026-08-28",83],["2026-08-29",0],["2026-08-30",189],["2026-08-31",0],["2026-09-01",0],["2026-09-02",0],["2026-09-03",411],["2026-09-04",0],["2026-09-05",15],["2026-09-06",284],["2026-09-07",19],["2026-09-08",5],["2026-09-09",5],["2026-09-10",0],["2026-09-11",0],["2026-09-12",0],["2026-09-13",477],["2026-09-14",182],["2026-09-15",241],["2026-09-16",245],["2026-09-17",147],["2026-09-18",93],["2026-09-19",48],["2026-09-20",0],["2026-09-21",177],["2026-09-22",166],["2026-09-23",105],["2026-09-24",119],["2026-09-25",123],["2026-09-26",473],["2026-09-27",420],["2026-09-28",484]];
+  var USAGE=[["2026-08-24",36],["2026-08-25",61],["2026-08-26",62],["2026-08-27",25],["2026-08-28",83],["2026-08-29",0],["2026-08-30",189],["2026-08-31",0],["2026-09-01",0],["2026-09-02",0],["2026-09-03",411],["2026-09-04",0],["2026-09-05",15],["2026-09-06",284],["2026-09-07",19],["2026-09-08",5],["2026-09-09",5],["2026-09-10",0],["2026-09-11",0],["2026-09-12",0],["2026-09-13",477],["2026-09-14",186],["2026-09-15",255],["2026-09-16",245],["2026-09-17",147],["2026-09-18",116],["2026-09-19",154],["2026-09-20",0],["2026-09-21",365],["2026-09-22",278],["2026-09-23",134],["2026-09-24",119],["2026-09-25",123],["2026-09-26",473],["2026-09-27",420],["2026-09-28",569],["2026-09-29",220],["2026-09-30",362],["2026-10-01",190],["2026-10-02",52],["2026-10-03",29],["2026-10-04",398],["2026-10-05",69],["2026-10-06",152],["2026-10-07",584],["2026-10-08",533],["2026-10-09",0],["2026-10-10",0],["2026-10-11",539],["2026-10-12",573],["2026-10-13",172],["2026-10-14",54],["2026-10-15",163],["2026-10-16",33],["2026-10-17",21],["2026-10-18",92],["2026-10-19",424],["2026-10-20",110],["2026-10-21",54]];
   function clicksAt(b){ // b: 만 원
     if(b<=0) return 0;
     for(var i=1;i<CURVE.length;i++){ if(CURVE[i][0]>=b){var a=CURVE[i-1],c=CURVE[i];return a[1]+(c[1]-a[1])*(b-a[0])/(c[0]-a[0]);} }
@@ -523,7 +551,7 @@ header{padding-top:8px}
     document.getElementById("rRev").textContent=man(sales);
     document.getElementById("rCost").textContent="광고비 "+man(b)+" · AI "+man(ai);
     var pe=document.getElementById("rProfit"); pe.textContent=(p>=0?"+":"")+man(p); pe.className="big num "+(p>=0?"pos":"neg");
-    document.getElementById("rRoas").textContent=b>0?"ROAS "+Math.round(sales/b*100)+"%":"";
+    document.getElementById("rRoas").textContent=b>0?"광고비 대비 매출 "+Math.round(sales/b*100)+"%":"";
     var best=0,bp=-1e9; for(var x=0;x<=1700;x+=5){var q=profitAt(x,c,r,rev); if(q>bp){bp=q;best=x;}}
     document.getElementById("rBest").textContent=best>0?man(best):"광고 안 함";
     document.getElementById("rBestP").textContent=best>0?"매출이익 "+(bp>=0?"+":"")+man(bp):"어떤 광고비에서도 이익이 나지 않습니다";
@@ -545,22 +573,22 @@ header{padding-top:8px}
   }
   document.getElementById("mcalc").addEventListener("input",draw); draw();
 
-  var desc={"85":"최소: 버그 수정과 작은 개선만 합니다. 좌석 비용의 절반을 인스캔에 배분합니다.","165":"보통: 매달 기능을 조금씩 개선합니다. 좌석 1개 비용을 모두 인스캔에 배분합니다.","717":"집중: 9월처럼 큰 기능을 계속 만듭니다. 좌석에 9월 실제 크레딧 사용액 약 $552(부가세 포함)를 더합니다."};
+  var desc={"85":"최소: 버그 수정과 작은 개선만 합니다. 좌석 비용의 절반을 잡습니다.","165":"보통: 좌석 한도 안에서 조금씩 개선합니다. 추가 충전 없이 좌석 1개만 잡습니다.","1977":"집중 (10월): 광고 결과를 보며 화면을 계속 고칩니다. 좌석에 10월 실제 충전 속도(월 약 1,812달러)를 더합니다."};
   function sel(n){var e=document.querySelector('input[name="'+n+'"]:checked');return e?Number(e.value):0;}
   function odraw(){
-    var v=sel("vol"),l=sel("lvl"),aws=v>=300?95:90,ai=v*2,m=aws+l+ai;
+    var v=sel("vol"),l=sel("lvl"),aws=v>=300?87:82,ai=v*2,m=aws+l+ai;
     document.getElementById("lvlDesc").textContent=desc[String(l)];
     document.getElementById("oMonth").textContent="약 "+man(m*1400/1e4);
-    document.getElementById("oBreak").textContent="AWS $"+aws+" · 도구 $"+l+" · AI $"+ai;
+    document.getElementById("oBreak").textContent="서버 "+aws+"달러 · 클로드 "+l.toLocaleString("en-US")+"달러 · 판독 "+ai+"달러";
     document.getElementById("oYear").textContent="약 "+man(m*12*1400/1e4);
-    document.getElementById("oYearUsd").textContent="US$"+(m*12).toLocaleString("en-US");
+    document.getElementById("oYearUsd").textContent=(m*12).toLocaleString("en-US")+"달러";
   }
   document.getElementById("ocalc").addEventListener("change",odraw); odraw();
 
   var bars=document.getElementById("usageBars"),mx=0,peak=null;
   USAGE.forEach(function(u){if(u[1]>mx){mx=u[1];peak=u;}});
-  USAGE.forEach(function(u){var e=document.createElement("div");e.style.height=Math.max(2,u[1]/mx*100)+"%";if(u[1]>=400)e.className="hot";e.title=u[0]+" $"+u[1];bars.appendChild(e);});
-  document.getElementById("usagePeak").textContent="최고 "+peak[0].slice(5).replace("-","/")+" $"+peak[1];
+  USAGE.forEach(function(u){var e=document.createElement("div");e.style.height=Math.max(2,u[1]/mx*100)+"%";if(u[1]>=400)e.className="hot";e.title=u[0]+" "+u[1]+"달러";bars.appendChild(e);});
+  document.getElementById("usagePeak").textContent="최고 "+peak[0].slice(5).replace("-","/")+" "+peak[1]+"달러";
 })();
 </script>
 
